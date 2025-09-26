@@ -175,6 +175,14 @@ const channels = [
     drmKey: "ad59b720bd4b44d063686212b99484b5:e1744990edf98acc729c0773a3766583",
   },
   {
+    name: "TNT Sports 3 HD",
+    category: "Sports",
+    image: "https://ultrawebs.github.io/-/webpa/tntsports3.webp",
+    stream:
+      "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/lsdasbvglv/out/v1/bb548a3626cd4708afbb94a58d71dce9/cenc.mpd",
+    drmKey: "08efc7fb107981608f7b64db5ea62469:3a6844bc9f0d9d9fd962639d7e4eb76a",
+  },
+  {
     name: "TNT Sports 4 HD",
     category: "Sports",
     image: "https://ultrawebs.github.io/-/webpa/tntsports4.webp",
