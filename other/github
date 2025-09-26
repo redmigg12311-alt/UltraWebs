@@ -1,0 +1,105 @@
+Pushing updated code from **VS Code** to **GitHub** is straightforward once you have Git set up. Here’s a step-by-step guide:
+
+---
+
+### **1. Make sure Git is installed**
+
+Check if Git is installed:
+
+```bash
+git --version
+```
+
+If not, [download and install Git](https://git-scm.com/downloads).
+
+---
+
+### **2. Open your project in VS Code**
+
+* Open the folder containing your project.
+* Make sure your project is already initialized as a Git repository (or do it now):
+
+```bash
+git init
+```
+
+---
+
+### **3. Connect to your GitHub repository**
+
+If you haven’t already linked your local repo to GitHub:
+
+```bash
+git remote add origin https://github.com/USERNAME/REPO_NAME.git
+```
+
+Replace `USERNAME` and `REPO_NAME` with your GitHub details.
+
+---
+
+### **4. Stage your changes**
+
+You can do this via VS Code UI or terminal.
+
+**Terminal:**
+
+```bash
+git add .
+```
+
+**VS Code:**
+
+* Go to **Source Control** (Ctrl+Shift+G / Cmd+Shift+G)
+* Click **+** next to files or **Stage All Changes**
+
+---
+
+### **5. Commit your changes**
+
+Terminal:
+
+```bash
+git commit -m "Your commit message"
+```
+
+VS Code:
+
+* Enter a commit message in the Source Control panel
+* Click the ✔ **Commit** button
+
+---
+
+### **6. Push to GitHub**
+
+Terminal:
+
+```bash
+git push origin main
+```
+
+> Replace `main` with your branch name if different (e.g., `master`).
+
+VS Code:
+
+* Click the three dots `...` in the Source Control panel
+* Select **Push**
+
+---
+
+### **7. Handling Authentication**
+
+If it asks for username/password:
+
+* GitHub now requires **Personal Access Tokens (PAT)** instead of password.
+* Generate one in GitHub → Settings → Developer Settings → Personal Access Tokens.
+* Use the token as your password when pushing.
+
+---
+
+✅ Done! Your updated code should now appear on GitHub.
+
+---
+
+If you want, I can give a **shortcut VS Code workflow** that lets you push changes **without ever opening the terminal**. It’s super quick.
+
+Do you want me to show that?
