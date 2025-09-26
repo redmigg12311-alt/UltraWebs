@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Channels</title>
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/search.css">
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <div class="search-container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input id="searchInput" type="text" placeholder="Search for Channels, Movies, Sports" aria-label="Search">
+            <button id="micBtn" aria-label="Voice Search">
+                <span class="material-icons">mic</span>
+            </button>
+            <button id="clearBtn" aria-label="Clear Search" style="display:none;">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+
+        <!-- Nav Buttons -->
+        <!-- <div class="nav-buttons">
+            <a href="#home" class="nav-card"
+                style="--bg:url('https://assets-6.mxplay.com/static/mxoneweb/desktop/images/search-page/web-shows.png')"><span>HOME</span></a>
+            <a href="#movies" class="nav-card"
+                style="--bg:url('https://assets-6.mxplay.com/static/mxoneweb/desktop/images/search-page/movies.png')"><span>MOVIES</span></a>
+            <a href="#live" class="nav-card"
+                style="--bg:url('https://assets-6.mxplay.com/static/mxoneweb/desktop/images/search-page/v-desi.png')"><span>LIVE-TV</span></a>
+            <a href="#sports" class="nav-card"
+                style="--bg:url('https://i.ibb.co/BHbdPRY5/sports.png')"><span>SPORTS</span></a>
+        </div> -->
+
+        <main class="results-wrapper">
+            <div id="channel-container"></div>
+            <div id="noResults" class="no-results" style="display:none;">
+                Sorry, we couldn't find any channels matching your search.
+            </div>
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+
+
+
+    <script src="js/channels.js"></script>
+    <script src="js/search.js"></script>
+
+</body>
+
+</html>

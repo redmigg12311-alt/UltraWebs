@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>StreamX KID & Key Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #071024;
+            --card: #0f1720AA;
+            --accent1: #7c5cff;
+            --accent2: #4aa8ff;
+            --muted: #9aa4b2;
+            --glass-border: rgba(255, 255, 255, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, sans-serif;
+            color: #e6eef8;
+            background: linear-gradient(180deg, var(--bg), #04101a);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 14px;
+            backdrop-filter: blur(8px) saturate(120%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+            border: 1px solid var(--glass-border);
+        }
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent1), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        p.lead {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: transparent;
+            color: inherit;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            flex: 1 1 auto;
+            min-width: 80px;
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--muted);
+        }
+
+        .small {
+            padding: 8px 10px;
+            font-size: 13px;
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .results {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .result-item {
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.008), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .k {
+            font-family: monospace;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 6px 8px;
+            border-radius: 6px;
+        }
+
+        .final {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(124, 92, 255, 0.12), rgba(74, 168, 255, 0.08));
+            border: 1px solid var(--glass-border);
+        }
+
+        #output {
+            max-height: 400px;
+            overflow: auto;
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.008), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        #output::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #output::-webkit-scrollbar-thumb {
+            background: rgba(124, 92, 255, 0.5);
+            border-radius: 4px;
+        }
+
+        pre,
+        .k,
+        #output {
+            white-space: pre-wrap !important;
+            word-wrap: break-word !important;
+            overflow-wrap: anywhere !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">SX</div>
+            <div>
+                <h1>StreamX KID & Key Detector</h1>
+                <p class="lead">Detects KID, ClearKey, or DRM info from any MPD file. Shows PSSH & DRM type for
+                    Widevine/PlayReady.</p>
+            </div>
+        </header>
+
+        <div class="card" style="margin-top:12px">
+            <label class="input">MPD URL</label>
+            <div class="row">
+                <input type="text" id="mpdUrl" placeholder="https://example.com/stream/manifest.mpd" />
+                <button class="btn small" id="fetchBtn">Fetch</button>
+            </div>
+            <div class="note">Paste or upload MPD if CORS blocks remote fetch.</div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+            <h3>Extracted Info</h3>
+            <div id="list" class="results">
+                <div class="meta">No data yet. Click Fetch.</div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+            <h3>Raw / Debug</h3>
+            <pre id="output">—</pre>
+        </div>
+    </div>
+
+    <script>
+        const fetchBtn = document.getElementById('fetchBtn');
+        const mpdUrl = document.getElementById('mpdUrl');
+        const list = document.getElementById('list');
+        const output = document.getElementById('output');
+
+        function parseMPD(xmlText) {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+            if (xmlDoc.getElementsByTagName('parsererror').length) throw new Error('Invalid MPD XML');
+
+            const items = [];
+            const cps = Array.from(xmlDoc.getElementsByTagNameNS('*', 'ContentProtection'));
+            for (const cp of cps) {
+                const obj = {
+                    schemeIdUri: cp.getAttribute('schemeIdUri') || '',
+                    attributes: {}, kid: null, keys: [], raw: cp.textContent.trim()
+                };
+                for (const a of Array.from(cp.attributes)) obj.attributes[a.name] = a.value;
+                obj.kid = cp.getAttribute('cenc:default_KID') || cp.getAttribute('default_KID') || cp.getAttribute('data-kid') || cp.getAttribute('kid') || null;
+
+                // Extract PSSH
+                const psshText = Array.from(cp.getElementsByTagName('pssh')).map(n => n.textContent.trim()).filter(Boolean);
+                if (psshText.length) obj.pssh = psshText[0];
+
+                // DRM detection
+                if (obj.schemeIdUri.includes('edef8ba9-79d6-4ace-a3c8-27dcd51d21ed')) obj.drm = 'Widevine';
+                else if (obj.schemeIdUri.includes('9a04f079-9840-4286-ab92-e65be0885f95')) obj.drm = 'PlayReady';
+                else if (obj.schemeIdUri.toLowerCase().includes('clearkey')) {
+                    obj.drm = 'ClearKey';
+
+                    // Try extracting ClearKey keys as XML nodes <Key KID="" KEY=""/>
+                    const keyNodes = cp.getElementsByTagName('Key');
+                    for (const k of keyNodes) {
+                        obj.keys.push({
+                            kid: k.getAttribute('KID'),
+                            k: k.getAttribute('KEY')
+                        });
+                    }
+
+                    // Try parsing ClearKey JSON keys inside ContentProtection, common format: {"keys":[{"k":"...","kid":"..."}]}
+                    try {
+                        const json = JSON.parse(cp.textContent.trim());
+                        if (json && Array.isArray(json.keys)) {
+                            obj.keys = obj.keys.concat(json.keys.map(k => ({ kid: k.kid, k: k.k })));
+                        }
+                    } catch (e) {
+                        // Ignore JSON parse errors silently
+                    }
+                }
+
+                items.push(obj);
+            }
+            return items;
+        }
+
+        function renderList(arr) {
+            list.innerHTML = '';
+            if (!arr.length) {
+                list.innerHTML = '<div class="meta">No keys found</div>';
+                return;
+            }
+            for (const it of arr) {
+                const div = document.createElement('div');
+                div.className = 'result-item';
+                div.innerHTML = '<strong>' + (it.schemeIdUri || 'ContentProtection') + '</strong>';
+                if (it.kid) div.innerHTML += '<div style="margin-top:8px">KID: <span class="k">' + it.kid + '</span></div>';
+
+                if (it.drm === 'ClearKey' && it.keys.length) {
+                    const kBox = document.createElement('div');
+                    kBox.style.marginTop = '8px';
+                    kBox.innerHTML = '<div class="meta">Keys:</div>';
+                    for (const k of it.keys) {
+                        kBox.innerHTML += '<div style="margin-top:6px">KID: <span class="k">' + (k.kid || '—') + '</span> Key: <span class="k">' + (k.k || '—') + '</span></div>';
+                    }
+                    div.appendChild(kBox);
+                } else if (it.drm) {
+                    div.innerHTML += '<div class="meta" style="margin-top:8px">DRM Type: ' + it.drm + (it.keys.length ? ' — Keys found' : ' — Key not available') + '</div>';
+                } else {
+                    div.innerHTML += '<div class="meta" style="margin-top:8px">No ClearKey `k` found</div>';
+                }
+
+                if (it.pssh) div.innerHTML += '<div class="meta" style="margin-top:6px">PSSH: <span class="k">' + it.pssh + '</span></div>';
+                list.appendChild(div);
+            }
+        }
+
+        fetchBtn.addEventListener('click', async () => {
+            const url = mpdUrl.value.trim();
+            if (!url) return alert('Enter MPD URL');
+            output.textContent = 'Fetching...';
+            list.innerHTML = '';
+            try {
+                const resp = await fetch(url, {
+                    mode: 'cors'
+                });
+                if (!resp.ok) throw new Error('Fetch failed: ' + resp.status);
+                const xmlText = await resp.text();
+                output.textContent = xmlText.slice(0, 12000) + (xmlText.length > 12000 ? '\n\n... (truncated)' : '');
+                const extracted = parseMPD(xmlText);
+                renderList(extracted);
+            } catch (e) {
+                output.textContent = 'Error: ' + e.message;
+            }
+        });
+    </script>
+</body>
+
+</html>

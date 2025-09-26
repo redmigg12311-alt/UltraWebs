@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ClearKey & KID Extractor — StreamX Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #071024;
+            --card: #0f1720AA;
+            --accent1: #7c5cff;
+            --accent2: #4aa8ff;
+            --muted: #9aa4b2;
+            --glass-border: rgba(255, 255, 255, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, system-ui, Segoe UI, Roboto, -apple-system, "Helvetica Neue", Arial;
+            color: #e6eef8;
+            background: linear-gradient(180deg, var(--bg), #04101a);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 14px;
+            backdrop-filter: blur(8px) saturate(120%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+            border: 1px solid var(--glass-border);
+        }
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent1), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        p.lead {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        #output {
+            max-height: 400px;
+            overflow: auto;
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.008), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        #output::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #output::-webkit-scrollbar-thumb {
+            background: rgba(124, 92, 255, 0.5);
+            border-radius: 4px;
+        }
+
+        label.input {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        input[type=text],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: transparent;
+            color: inherit;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            flex: 1 1 auto;
+            min-width: 80px;
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--muted);
+        }
+
+        .small {
+            padding: 8px 10px;
+            font-size: 13px;
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .results {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .result-item {
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.008), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .k {
+            font-family: monospace;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 6px 8px;
+            border-radius: 6px;
+        }
+
+        .final {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(124, 92, 255, 0.12), rgba(74, 168, 255, 0.08));
+            border: 1px solid var(--glass-border);
+        }
+
+        .player {
+            width: 100%;
+            height: 260px;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .player video {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+
+        footer {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Word wrap fix */
+        pre,
+        .k,
+        #finalResult,
+        #output {
+            white-space: pre-wrap !important;
+            word-wrap: break-word !important;
+            overflow-wrap: anywhere !important;
+        }
+
+        .grid {
+            grid-template-columns: 1fr min(420px, 100%);
+        }
+
+        .result-item {
+            overflow-x: auto;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .container {
+                margin: 30px 20px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .player {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px 10px;
+                padding: 14px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            p.lead {
+                font-size: 12px;
+            }
+
+            .btn {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            .small {
+                padding: 6px 8px;
+                font-size: 12px;
+            }
+
+            .player {
+                height: 160px;
+            }
+
+            .row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">SX</div>
+            <div>
+                <h1>ClearKey & KID Extractor — StreamX Pro</h1>
+                <p class="lead">Professional tool: fetch MPD (URL/upload/paste), extract KID & ClearKey `k` values, and
+                    test playback using DASH + ClearKey (dash.js). Works in modern browsers.</p>
+            </div>
+        </header>
+
+        <div class="grid">
+            <div>
+                <div class="card">
+                    <label class="input">MPD URL</label>
+                    <div class="row">
+                        <input type="text" id="mpdUrl" placeholder="https://example.com/stream/manifest.mpd" />
+                        <button class="btn small" id="fetchBtn">Fetch</button>
+                    </div>
+
+                    <div style="display:flex;gap:10px;margin-top:10px;align-items:center;">
+                        <label class="btn ghost small" id="pasteToggle">Paste MPD</label>
+                        <label class="btn ghost small" id="uploadLabel">Upload MPD</label>
+                        <input type="file" id="fileInput" accept=".mpd,application/xml,text/xml" style="display:none" />
+                        <button class="btn ghost small" id="clearBtn">Clear</button>
+                        <button class="btn small" id="downloadJson">Download</button>
+                    </div>
+
+                    <div id="pasteArea" style="display:none;margin-top:12px">
+                        <label class="input">Paste MPD XML</label>
+                        <textarea id="mpdText" placeholder="Paste MPD XML here"></textarea>
+                    </div>
+
+                    <div class="note">If remote fetch fails due to CORS, upload the .mpd file or paste the XML. This
+                        tool uses dash.js for playback testing.</div>
+                </div>
+
+                <div class="card" style="margin-top:12px">
+                    <h3 style="margin:0 0 8px 0">Extracted Keys</h3>
+                    <div id="list" class="results">
+                        <div class="meta">No data yet. Click <strong>Fetch</strong> to extract.</div>
+                    </div>
+
+                    <div class="final" id="finalBox" style="display:none">
+                        <strong>Final Result (JSON)</strong>
+                        <pre id="finalResult" style="margin:8px 0 0 0;white-space:pre-wrap"></pre>
+                        <div style="display:flex;gap:8px;margin-top:8px">
+                            <button class="btn small" id="copyFinal">Copy Final</button>
+                            <button class="btn small" id="usePlayer">Load in Player</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="card">
+                    <h3 style="margin-top:0">Player — DASH + ClearKey Test</h3>
+                    <div class="player card" id="playerWrap">
+                        <video id="video" controls></video>
+                    </div>
+
+                    <div style="display:flex;gap:8px;margin-top:10px">
+                        <button class="btn small" id="playBtn">Play</button>
+                        <button class="btn ghost small" id="stopBtn">Stop</button>
+                        <select id="quality" style="margin-left:auto;width:150px">
+                            <option value="">Quality (dash.js)</option>
+                        </select>
+                    </div>
+
+                    <div class="note" style="margin-top:10px">The player will attempt to use the extracted ClearKey
+                        key(s). It uses dash.js and the browser's EME support (org.w3.clearkey).</div>
+                </div>
+
+                <div class="card" style="margin-top:12px">
+                    <h3 style="margin:0 0 8px 0">Raw / Debug</h3>
+                    <pre id="output">—</pre>
+                </div>
+            </div>
+        </div>
+
+        <footer>Built with ❤️ StreamX Pro — Supports detection of cenc:default_KID, default_KID, data-kid, KID child
+            nodes, & ClearKey JSON or keys inside ContentProtection/pssh.</footer>
+    </div>
+
+    <!-- dash.js from CDN -->
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script>
+        // Utilities
+        const b64pad = s => s + '='.repeat((4 - s.length % 4) % 4);
+        function base64UrlToBase64(s) { return b64pad(s.replace(/-/g, '+').replace(/_/g, '/')) }
+        function isBase64(str) { try { return atob(str), true } catch (e) { return false } }
+        function hexToBytes(hex) { if (!hex) return null; const h = hex.replace(/[^0-9a-f]/gi, ''); if (h.length % 2) return null; const arr = new Uint8Array(h.length / 2); for (let i = 0; i < h.length; i += 2) arr[i / 2] = parseInt(h.substr(i, 2), 16); return arr }
+        function bytesToBase64(bytes) { let s = ''; for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]); return btoa(s) }
+
+        // DOM
+        const fetchBtn = document.getElementById('fetchBtn');
+        const mpdUrl = document.getElementById('mpdUrl');
+        const mpdText = document.getElementById('mpdText');
+        const pasteToggle = document.getElementById('pasteToggle');
+        const pasteArea = document.getElementById('pasteArea');
+        const uploadLabel = document.getElementById('uploadLabel');
+        const fileInput = document.getElementById('fileInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const downloadJson = document.getElementById('downloadJson');
+        const list = document.getElementById('list');
+        const output = document.getElementById('output');
+        const finalBox = document.getElementById('finalBox');
+        const finalResult = document.getElementById('finalResult');
+        const copyFinal = document.getElementById('copyFinal');
+        const usePlayer = document.getElementById('usePlayer');
+        const playBtn = document.getElementById('playBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const video = document.getElementById('video');
+        const quality = document.getElementById('quality');
+
+        let latestRaw = null; let latestResults = null; let player = null;
+
+        pasteToggle.addEventListener('click', () => pasteArea.style.display = pasteArea.style.display === 'none' ? 'block' : 'none');
+        uploadLabel.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', async e => { const f = e.target.files[0]; if (!f) return; mpdText.value = await f.text(); pasteArea.style.display = 'block'; });
+        clearBtn.addEventListener('click', () => { mpdUrl.value = ''; mpdText.value = ''; list.innerHTML = ''; output.textContent = '—'; finalBox.style.display = 'none'; latestResults = null; latestRaw = null; if (player) { player.reset(); player = null } });
+
+        copyFinal.addEventListener('click', () => { if (!latestResults) return alert('No result'); navigator.clipboard.writeText(JSON.stringify(latestResults, null, 2)).then(() => alert('Final JSON copied')) });
+        downloadJson.addEventListener('click', () => { if (!latestResults) return alert('No result'); const blob = new Blob([JSON.stringify(latestResults, null, 2)], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'clearkey-result.json'; a.click(); URL.revokeObjectURL(a.href); });
+
+        fetchBtn.addEventListener('click', async () => {
+            list.innerHTML = ''; output.textContent = 'Fetching...'; finalBox.style.display = 'none'; latestResults = null; latestRaw = null;
+            try {
+                let xml = '';
+                if (mpdText && mpdText.value.trim()) { xml = mpdText.value; }
+                else if (fileInput.files && fileInput.files[0]) { xml = await fileInput.files[0].text(); }
+                else if (mpdUrl.value.trim()) { const resp = await fetch(mpdUrl.value.trim(), { mode: 'cors' }); if (!resp.ok) throw new Error('Fetch failed: ' + resp.status); xml = await resp.text(); }
+                else throw new Error('Provide MPD URL, paste or upload a file.');
+
+                latestRaw = xml; output.textContent = xml.slice(0, 12000) + (xml.length > 12000 ? '\n\n... (truncated)' : '');
+                const parser = new DOMParser(); const xmlDoc = parser.parseFromString(xml, 'application/xml');
+                if (xmlDoc.getElementsByTagName('parsererror').length) throw new Error('Unable to parse MPD XML');
+
+                const extracted = extractAll(xmlDoc);
+                latestResults = extracted; renderList(extracted);
+                finalBox.style.display = 'block'; finalResult.textContent = JSON.stringify(extracted, null, 2);
+            } catch (err) { output.textContent = 'Error: ' + err.message; }
+        });
+
+        // Extract KIDs and ClearKey key values
+        function extractAll(xml) {
+            const items = [];
+
+            // 1) ContentProtection nodes
+            const cps = Array.from(xml.getElementsByTagNameNS('*', 'ContentProtection'));
+            for (const cp of cps) {
+                const obj = { schemeIdUri: cp.getAttribute('schemeIdUri') || '', attributes: {}, kid: null, keys: [], raw: cp.textContent.trim() };
+                for (const a of Array.from(cp.attributes)) obj.attributes[a.name] = a.value;
+                // common KID attributes
+                const maybeKid = cp.getAttribute('cenc:default_KID') || cp.getAttribute('default_KID') || cp.getAttribute('data-kid') || cp.getAttribute('kid') || null;
+                if (maybeKid) obj.kid = maybeKid;
+                // child KID elements
+                const kidEls = Array.from(cp.getElementsByTagName('KID')).map(n => n.textContent.trim()).filter(Boolean);
+                if (kidEls.length) obj.kid = kidEls[0];
+
+                // pssh
+                const psshEls = Array.from(cp.getElementsByTagName('pssh')).map(n => n.textContent.trim()).filter(Boolean);
+                if (psshEls.length) obj.pssh = psshEls[0];
+
+                // try parsing JSON inside content (clearkey JSON or KeyData)
+                const txt = cp.textContent || '';
+                const jsons = findJsonsInString(txt);
+                for (const j of jsons) {
+                    if (j.keys || j.kids || j.clearkeys || j.k) { // candidate
+                        // Normalize
+                        if (j.keys) { // array of {k,kid}
+                            for (const kk of j.keys) { if (kk.k && kk.kid) obj.keys.push({ kid: kk.kid, k: kk.k }); }
+                        }
+                        if (j.clearkeys) { // older shape
+                            for (const [kid, k] of Object.entries(j.clearkeys)) { obj.keys.push({ kid: kid, k: k }); }
+                        }
+                        if (j.kids && j.keys) { // kids + keys lists
+                            // attempt to pair
+                            if (Array.isArray(j.keys)) {
+                                for (const kk of j.keys) { if (kk.k && kk.kid) obj.keys.push({ kid: kk.kid, k: kk.k }); }
+                            }
+                        }
+                        if (j.k && j.kid) { obj.keys.push({ kid: j.kid, k: j.k }); }
+                    }
+                }
+
+                items.push(obj);
+            }
+
+            // 2) Search whole document text for ClearKey JSON blocks
+            const allText = Array.from(xml.getElementsByTagName('*')).map(n => n.textContent).filter(Boolean).join('\n');
+            const found = findJsonsInString(allText);
+            for (const j of found) {
+                if (j.keys || j.clearkeys || j.kids || j.k) {
+                    const obj = { schemeIdUri: 'inline-json', attributes: {}, kid: null, keys: [], raw: JSON.stringify(j).slice(0, 1000) };
+                    if (j.keys) { for (const kk of j.keys) if (kk.k && kk.kid) obj.keys.push({ kid: kk.kid, k: kk.k }); }
+                    if (j.clearkeys) { for (const [kid, k] of Object.entries(j.clearkeys)) obj.keys.push({ kid: kid, k: k }); }
+                    if (j.k && j.kid) obj.keys.push({ kid: j.kid, k: j.k });
+                    items.push(obj);
+                }
+            }
+
+            // 3) Attributes named *kid*
+            const allEls = Array.from(xml.querySelectorAll('*'));
+            for (const el of allEls) { for (const a of Array.from(el.attributes || [])) { if (/kid/i.test(a.name) && a.value) { items.push({ schemeIdUri: 'attr-kid', attributes: { [a.name]: a.value }, kid: a.value, keys: [], raw: '' }) } } }
+
+            // normalize and dedupe
+            const norm = items.map(it => normalizeItem(it)).filter(Boolean);
+            const uniq = []; const seen = new Set();
+            for (const u of norm) { const sig = (u.kid || '') + '|' + (u.keys.map(k => k.kid + k.k).join(',')); if (seen.has(sig)) continue; seen.add(sig); uniq.push(u); }
+            return uniq;
+        }
+
+        function normalizeItem(it) {
+            const out = { ...it };
+            out.kid = out.kid ? out.kid.trim() : null;
+            out.keys = out.keys || [];
+            // normalize keys: ensure base64 for kid and k
+            out.keys = out.keys.map(k => {
+                let kid = k.kid; let key = k.k;
+                // kid may be UUID/hex/base64
+                // if looks like hex (32 chars w/o dashes) -> convert to bytes -> base64
+                if (/^([0-9a-f]{32})$/i.test(kid.replace(/[^0-9a-f]/gi, ''))) { const b = hexToBytes(kid); if (b) kid = bytesToBase64(b); }
+                // if looks like uuid -> remove dashes and convert
+                if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(kid)) { const hex = kid.replace(/-/g, ''); const b = hexToBytes(hex); if (b) kid = bytesToBase64(b); }
+                // if kid is base64url -> convert
+                if (/[-_]/.test(kid)) kid = base64UrlToBase64(kid);
+                // pad
+                kid = b64pad(kid.replace(/\s+/g, ''));
+
+                // key normalization
+                if (key) { if (/[-_]/.test(key)) key = base64UrlToBase64(key); key = b64pad(key.replace(/\s+/g, '')); }
+                return { kid, k: key };
+            }).filter(k => k.kid || k.k);
+
+            return out;
+        }
+
+        function findJsonsInString(s) {
+            const out = [];
+            const re = /\{[\s\S]*?\}/g; let m; while ((m = re.exec(s)) !== null) { try { const j = JSON.parse(m[0]); out.push(j); } catch (e) { } }
+            return out;
+        }
+
+        function renderList(arr) {
+            list.innerHTML = ''; if (!arr.length) { list.innerHTML = '<div class="meta">No keys found</div>'; return }
+            for (const it of arr) {
+                const div = document.createElement('div'); div.className = 'result-item';
+                const title = document.createElement('div'); title.innerHTML = '<strong>' + (it.schemeIdUri || 'ContentProtection') + '</strong>';
+                div.appendChild(title);
+                if (it.kid) div.innerHTML += '<div style="margin-top:8px">Detected KID: <span class="k">' + it.kid + '</span></div>';
+                if (it.keys && it.keys.length) {
+                    const box = document.createElement('div'); box.style.marginTop = '8px';
+                    box.innerHTML = '<div class="meta">Keys:</div>';
+                    for (const k of it.keys) {
+                        const row = document.createElement('div'); row.style.display = 'flex'; row.style.justifyContent = 'space-between'; row.style.alignItems = 'center'; row.style.marginTop = '6px';
+                        const left = document.createElement('div'); left.innerHTML = '<div>KID: <span class="k">' + (k.kid || '—') + '</span></div><div class="meta" style="margin-top:6px">Key: <span class="k">' + (k.k || '—') + '</span></div>';
+                        const right = document.createElement('div');
+                        const copy1 = document.createElement('button'); copy1.className = 'btn ghost small'; copy1.textContent = 'Copy'; copy1.addEventListener('click', () => navigator.clipboard.writeText(JSON.stringify(k)).then(() => alert('Copied')));
+                        right.appendChild(copy1);
+                        row.appendChild(left); row.appendChild(right); box.appendChild(row);
+                    }
+                    div.appendChild(box);
+                } else {
+                    div.innerHTML += '<div class="meta" style="margin-top:8px">No ClearKey `k` found in this node.</div>';
+                }
+                list.appendChild(div);
+            }
+        }
+
+        // Player integration using dash.js and protectionData clearkeys
+        usePlayer.addEventListener('click', () => {
+            if (!latestResults) return alert('No extracted result to use');
+
+            // construct protectionData from first available extracted keys
+            const clearkeysMap = {};
+            for (const it of latestResults) { for (const k of it.keys) { if (k.kid && k.k) clearkeysMap[k.kid] = k.k } }
+            if (Object.keys(clearkeysMap).length === 0) return alert('No ClearKey k values found to use in player');
+
+            const mpd = mpdUrl.value.trim() || null;
+            if (!mpd) return alert('Provide MPD URL to load in player (top input)');
+
+            // initialize dash.js
+            if (player) { try { player.reset(); } catch (e) { } player = null }
+            player = dashjs.MediaPlayer().create();
+            player.getDebug().setLogToBrowserConsole(false);
+
+            player.extend('RequestModifier', () => {
+                return {
+                    modifyRequestHeader: function (xhr) { return xhr; },
+                    modifyRequestURL: function (url) { return url; }
+                }
+            }, true);
+
+            const protection = { 'org.w3.clearkey': { clearkeys: clearkeysMap } };
+            player.initialize(video, mpd, false);
+            player.setProtectionData(protection);
+            // enable logs
+            player.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, () => {
+                output.textContent = 'Player initialized. Stream ready.';
+                // populate quality levels
+                const reps = player.getAutoSwitchQualityFor('video');
+                try { const tracks = player.getBitrateInfoListFor('video') || []; quality.innerHTML = '<option value="">Quality (dash.js)</option>'; tracks.forEach((t, idx) => { const opt = document.createElement('option'); opt.value = idx; opt.textContent = t.height + 'p — ' + Math.round(t.bitrate / 1000) + ' kbps'; quality.appendChild(opt) }); } catch (e) { }
+            });
+
+            player.on(dashjs.MediaPlayer.events.ERROR, (e) => { output.textContent = 'Player error: ' + JSON.stringify(e); });
+
+            output.textContent = 'Loading MPD into player...';
+        });
+
+        playBtn.addEventListener('click', () => { if (!player) return alert('Load stream into player first (Use Player)'); video.play(); });
+        stopBtn.addEventListener('click', () => { if (player) { try { player.reset(); } catch (e) { } player = null } video.pause(); video.src = ''; });
+
+        // auto-fill video quality selection
+        quality.addEventListener('change', () => { const v = quality.value; if (player && v !== '') { player.setQualityFor('video', parseInt(v), true); } });
+
+    </script>
+</body>
+
+</html>

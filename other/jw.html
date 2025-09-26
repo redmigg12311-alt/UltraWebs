@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JW Player Obfuscated HLS Example</title>
+  <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+</head>
+<body>
+  <div id="myPlayer" style="width:100%; max-width:800px; height:450px; margin:auto;"></div>
+
+  <script>
+  (function(_0x223384,_0x1d3b1b){
+      const _0x4db99e=_0x4e9e,_0x55e1fa=_0x223384();
+      while(!![]){
+          try{
+              const _0x3c550f=-parseInt(_0x4db99e(0x11c))/0x1+-parseInt(_0x4db99e(0xcc))/0x2+
+              parseInt(_0x4db99e(0x105))/0x3+-parseInt(_0x4db99e(0xfa))/0x4*(parseInt(_0x4db99e(0xd3))/0x5)+
+              -parseInt(_0x4db99e(0x114))/0x6*(-parseInt(_0x4db99e(0xd8))/0x7)+
+              parseInt(_0x4db99e(0x107))/0x8*(-parseInt(_0x4db99e(0xc5))/0x9)+
+              parseInt(_0x4db99e(0xd7))/0xa*(parseInt(_0x4db99e(0xc6))/0xb);
+              if(_0x3c550f===_0x1d3b1b) break;
+              else _0x55e1fa.push(_0x55e1fa.shift());
+          } catch(_0x49cdb4) {
+              _0x55e1fa.push(_0x55e1fa.shift());
+          }
+      }
+  }(_0x1fcb,0x78fe5));
+
+  function _0x1e1e(){
+      const _0x5c9f96=_0x4e9e,
+      _0x22d601=['reen','log','play','video','player','getElement', 'AddYourOtherValuesHere...'];
+      return _0x1e1e=function(){return _0x22d601;},_0x1e1e();
+  }
+
+  function _0x5c7e(_0xaee9cd,_0x2c4313){
+      const _0xb0638c=_0x1e1e();
+      return _0x5c7e=function(_0x534e4c,_0x23fa16){
+          _0x534e4c=_0x534e4c-(-0x38f+0x1*-0x1475+-0x652*-0x4);
+          let _0x1b56cf=_0xb0638c[_0x534e4c];
+          return _0x1b56cf;
+      },_0x5c7e(_0xaee9cd,_0x2c4313);
+  }
+
+  const manifestUri="https://sundirectgo-live.pc.cdn.bitgravity.com/hd21/dth.mpd";
+
+  async function init(){
+      const _0x22be8b=_0x5c7e,
+      _0x42fdc8={'UPibt':'rgba(55,255,0,.2)','tOTkI':'ArrowUp','8268467a7a974698b18c9e63b13f73a4':'YOUR_CLEAR_KEY_HERE'};
+      
+      const videoElement=document.getElementById("myPlayer");
+      const ui=new shaka.ui.Overlay(new shaka.Player(videoElement), document.getElementById("myPlayer"), videoElement);
+      const player=ui.getControls().getPlayer();
+
+      window.player=player;
+      window.ui=ui;
+
+      ui.configure({
+          enableKeyboardPlaybackControls:true,
+          seekBarColors:{
+              base:_0x42fdc8['UPibt'],
+              buffered:'rgba(55,255,.4)',
+              played:'rgba(55,255,0,.0)'
+          }
+      });
+
+      player.configure({
+          drm:{clearKeys:{'8268467a7a974698b18c9e63b13f73a4':_0x42fdc8['8268467a7a974698b18c9e63b13f73a4']}}
+      });
+
+      player.addEventListener("error", function(evt){console.error(evt.detail);});
+      ui.getControls().getPlayer().addEventListener("error", function(evt){console.error(evt.detail);});
+
+      try{
+          await player.load(manifestUri);
+          console.log("Video loaded!");
+      } catch(err){
+          console.error(err);
+      }
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>

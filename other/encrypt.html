@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JavaScript Obfuscator</title>
+<script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator@4.0.3/dist/index.browser.js"></script>
+<style>
+  body { font-family: Arial, sans-serif; margin: 2rem; background: #1e1e1e; color: white; }
+  textarea { width: 100%; height: 300px; font-family: monospace; font-size: 14px; background: #2e2e2e; color: #e3e3e3; padding: 1rem; border-radius: 5px; border: none; }
+  button { margin-top: 1rem; padding: 0.7rem 1.5rem; background-color: #4a90e2; border: none; border-radius: 5px; color: white; font-weight: bold; cursor: pointer; }
+  button:hover { background-color: #357ABD; }
+  .container { max-width: 900px; margin: auto; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript Obfuscator</h1>
+    <p>Paste your JavaScript code below and click "Obfuscate" to encrypt it.</p>
+    <textarea id="inputCode" placeholder="Paste JavaScript code here..."></textarea>
+    <button id="obfuscateBtn">Obfuscate</button>
+    <h2>Obfuscated Code</h2>
+    <textarea id="outputCode" readonly placeholder="Obfuscated code will appear here..."></textarea>
+  </div>
+
+  <script>
+    const obfuscateBtn = document.getElementById('obfuscateBtn');
+    const inputCode = document.getElementById('inputCode');
+    const outputCode = document.getElementById('outputCode');
+
+    obfuscateBtn.addEventListener('click', () => {
+      const code = inputCode.value.trim();
+      if (!code) {
+        alert('Please paste JavaScript code to obfuscate');
+        return;
+      }
+      try {
+        const obfuscated = JavaScriptObfuscator.obfuscate(code, {
+          compact: true,
+          controlFlowFlattening: true,
+          controlFlowFlatteningThreshold: 0.75,
+          deadCodeInjection: true,
+          deadCodeInjectionThreshold: 0.4,
+          debugProtection: false,
+          debugProtectionInterval: false,
+          disableConsoleOutput: true,
+          identifierNamesGenerator: 'hexadecimal',
+          log: false,
+          renameGlobals: false,
+          rotateStringArray: true,
+          selfDefending: true,
+          shuffleStringArray: true,
+          splitStrings: true,
+          splitStringsChunkLength: 5,
+          stringArray: true,
+          stringArrayEncoding: ['rc4'],
+          stringArrayThreshold: 1,
+          transformObjectKeys: true,
+          unicodeEscapeSequence: false
+        });
+        outputCode.value = obfuscated.getObfuscatedCode();
+      } catch (e) {
+        outputCode.value = 'Error: ' + e.message;
+      }
+    });
+  </script>
+</body>
+</html>

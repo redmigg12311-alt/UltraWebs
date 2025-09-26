@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* ===== HEADER ===== */
+.header {
+  width: 100%;
+  padding: 15px 5%; /* equal left and right spacing */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(25, 25, 25, 0.5);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.ultra-text {
+  color: #fff;
+  margin-right: 6px;
+}
+
+.animated-webs {
+  background: linear-gradient(90deg, #00e5ff, #ff00ff, #00ff9d, #00e5ff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideText 6s infinite linear;
+  font-weight: 700;
+}
+
+@keyframes slideText {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  20%,
+  40% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  display: flex;
+  gap: 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #eee;
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00e5ff;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #00e5ff;
+}
+
+/* ===== MENU TOGGLE (Hamburger) ===== */
+.menu-toggle {
+  display: none; /* hidden on desktop */
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(25, 25, 25, 0.8);
+    backdrop-filter: blur(40px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+
+  .nav.show {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  .nav a {
+    display: block;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
