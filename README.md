@@ -100,7 +100,7 @@ To deploy your own version:
 
 ## 📸 Screenshots
 
-Here are previews of the main pages:
+Here are previews of the pages:
 
 ### Home Page
 ![Home Page Screenshot](assets/screenshot/UL/Home.png)
