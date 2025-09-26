@@ -103,14 +103,14 @@ To deploy your own version:
 Here are previews of the main pages:
 
 ### Home Page
-![Home Page Screenshot](assets\screenshot\UL\Home.png)
+![Home Page Screenshot](assets/screenshot/UL/Home.png)
 
 ### Player Page
-![Player Page Screenshot](assets\screenshot\UL\player.png)
+![Player Page Screenshot](assets/screenshot/UL/player.png)
 
 ### Search Page (`search.html`)
-![Search Page Screenshot](assets\screenshot\UL\search.png)
-![Search Output Screenshot](assets\screenshot\UL\searchouput.png)
+![Search Page Screenshot](assets/screenshot/UL/search.png)
+![Search Output Screenshot](assets/screenshot/UL/searchouput.png)
 
 ***
 
