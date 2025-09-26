@@ -21,18 +21,27 @@ fetch("header.html")
 // Load footer
 fetch("footer.html")
   .then((res) => res.text())
-  .then(
-    (data) => (document.getElementById("footer-container").innerHTML = data)
-  );
+  .then((data) => (document.getElementById("footer-container").innerHTML = data));
 
-// Populate category filter
+// Populate category filter and render channels
 document.addEventListener("DOMContentLoaded", () => {
   const categoryFilter = document.getElementById("categoryFilter");
   const container = document.getElementById("channel-container");
 
   if (typeof channels === "undefined") return;
 
+  // Extract unique categories and sort them
   const categories = [...new Set(channels.map((c) => c.category || "Other"))];
+  categories.sort();
+
+  // Clear existing filter options and add "All"
+  categoryFilter.innerHTML = "";
+  const allOption = document.createElement("option");
+  allOption.value = "All";
+  allOption.textContent = "All";
+  categoryFilter.appendChild(allOption);
+
+  // Add sorted categories to the filter
   categories.forEach((cat) => {
     const opt = document.createElement("option");
     opt.value = cat;
@@ -40,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     categoryFilter.appendChild(opt);
   });
 
+  // Function to render channels grouped and sorted by category and channel name
   function renderChannels(list) {
     container.innerHTML = "";
     if (!list || !list.length) {
@@ -47,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Group channels by category
     const grouped = list.reduce((acc, ch) => {
       const cat = ch.category || "Other";
       acc[cat] = acc[cat] || [];
@@ -54,9 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return acc;
     }, {});
 
+    // Sort categories alphabetically and render
     Object.keys(grouped)
       .sort()
       .forEach((category) => {
+        // Sort channels alphabetically inside each category
+        const sortedChannels = grouped[category].sort((a, b) =>
+          (a.name || "").localeCompare(b.name || "")
+        );
+
+        // Category title
         const sectionTitle = document.createElement("h2");
         sectionTitle.className = "section-title";
         sectionTitle.textContent = category;
@@ -65,20 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const sectionGrid = document.createElement("div");
         sectionGrid.className = "container";
 
-        grouped[category].forEach((channel) => {
+        // Render channel cards
+        sortedChannels.forEach((channel) => {
           const card = document.createElement("div");
           card.className = "channel-card";
           card.style.setProperty("--bg", `url(${channel.image || ""})`);
           card.style.cursor = "pointer";
           card.innerHTML = `
-              <img src="${channel.image || ""}" alt="${
-            channel.name || "Untitled"
-          }" loading="lazy" onerror="this.style.opacity=.5">
-              <div class="channel-info">
-                <h3>${channel.name}</h3>
-                <span>${channel.category || "Other"}</span>
-              </div>
-            `;
+            <img src="${channel.image || ""}" alt="${channel.name || "Untitled"}" loading="lazy" onerror="this.style.opacity=.5">
+            <div class="channel-info">
+              <h3>${channel.name}</h3>
+              <span>${channel.category || "Other"}</span>
+            </div>
+          `;
 
           card.addEventListener("click", () => {
             const src = getChannelSource(channel);
@@ -110,8 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+  // Initial render of all channels
   renderChannels(channels);
 
+  // Filter channels when category changes
   categoryFilter.addEventListener("change", () => {
     const val = categoryFilter.value;
     renderChannels(

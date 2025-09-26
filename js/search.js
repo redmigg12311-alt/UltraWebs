@@ -60,25 +60,74 @@ function createYouTubeModalIfNeeded() {
   modal = document.createElement("div");
   modal.id = "ytModal";
   modal.style.cssText = `
-                position:fixed;inset:0;display:none;align-items:center;justify-content:center;
-                background:rgba(0,0,0,0.85);z-index:99999;padding:20px;`;
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.85);
+    z-index: 99999;
+    padding: 20px;
+  `;
 
   modal.innerHTML = `
-                <div id="ytBox" style="position:relative;max-width:1100px;width:100%;background:#000;border-radius:10px;overflow:hidden;">
-                    <button id="ytClose" aria-label="close" style="
-                        position:absolute;top:8px;right:8px;z-index:5;width:38px;height:38px;
-                        border:none;border-radius:50%;background:#e50914;color:#fff;font-size:20px;cursor:pointer;">&times;</button>
-                    <div style="padding-top:56.25%;position:relative;">
-                        <iframe id="ytFrame" src="" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
-                            style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
-                    </div>
-                </div>`;
+    <div id="ytBox" style="
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      background: transparent;
+      border-radius: 10px;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    ">
+<button id="ytClose" aria-label="close" style="
+  margin-bottom: 4px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+">×</button>
+
+      <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 10px; overflow: hidden;">
+        <iframe id="ytFrame" src="" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
+          style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 10px;"></iframe>
+      </div>
+    </div>
+  `;
 
   document.body.appendChild(modal);
+
+  const closeBtn = modal.querySelector("#ytClose");
+
+  closeBtn.addEventListener("mouseenter", () => {
+    closeBtn.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+    closeBtn.style.boxShadow = "0 8px 40px rgba(255, 255, 255, 0.4)";
+  });
+  closeBtn.addEventListener("mouseleave", () => {
+    closeBtn.style.backgroundColor = "rgba(255, 255, 255, 0.15)";
+    closeBtn.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.1)";
+  });
+
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeYouTube();
   });
-  modal.querySelector("#ytClose").addEventListener("click", closeYouTube);
+
+  closeBtn.addEventListener("click", closeYouTube);
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeYouTube();
   });
@@ -132,20 +181,27 @@ function renderChannels(list, limitPerCategory = 6) {
       const containerDiv = document.createElement("div");
       containerDiv.className = "container";
 
+      // Sort channels alphabetically before slicing
+      const sortedChannels = grouped[category].sort((a, b) =>
+        (a.name || "").localeCompare(b.name || "")
+      );
+
       const items = limitPerCategory
-        ? grouped[category].slice(0, limitPerCategory)
-        : grouped[category];
+        ? sortedChannels.slice(0, limitPerCategory)
+        : sortedChannels;
+
       items.forEach((channel) => {
         const card = document.createElement("div");
         card.className = "channel-card";
         card.style.setProperty("--bg", `url('${channel.image || ""}')`);
+        card.style.cursor = "pointer";
         card.innerHTML = `
                         <img src="${channel.image || ""}" alt="${
           channel.name
         }" loading="lazy" onerror="this.style.opacity=.5">
                         <div class="channel-info">
-                            <h3>${channel.name}</h3>
-                            <span>${channel.category || "Other"}</span>
+                          <h3>${channel.name}</h3>
+                          <span>${channel.category || "Other"}</span>
                         </div>
                     `;
 
@@ -163,7 +219,7 @@ function renderChannels(list, limitPerCategory = 6) {
             }
             url += `&channel=${encodeURIComponent(
               channel.name
-            )}&logo=${encodeURIComponent(channel.image)}`;
+            )}&logo=${encodeURIComponent(channel.image || "")}`;
             window.location.href = url;
           }
         });
