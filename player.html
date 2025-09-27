@@ -314,7 +314,19 @@
             jwplayer("player").setup(playerConfig);
         }
 
-        fetch("header.html").then(res => res.text()).then(data => { document.getElementById("header-placeholder").innerHTML = data; });
+        fetch("header.html")
+            .then((res) => res.text())
+            .then((data) => {
+                document.getElementById("header-placeholder").innerHTML = data;
+                const menuToggle = document.querySelector(".menu-toggle");
+                const nav = document.querySelector(".nav");
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener("click", () => nav.classList.toggle("show"));
+                    document.querySelectorAll(".nav a").forEach((link) => {
+                        link.addEventListener("click", () => nav.classList.remove("show"));
+                    });
+                }
+            });
         fetch("footer.html").then(res => res.text()).then(data => { document.getElementById("footer-container").innerHTML = data; });
 
         document.getElementById("play-overlay").addEventListener("click", () => {
