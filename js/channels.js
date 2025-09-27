@@ -690,6 +690,14 @@ const channels = [
       "https://youtu.be/KU2Nx63olF4",
   },
   {
+    name: "One Puch Man ",
+    image:
+      "https://api.duniagames.co.id/api/product/upload/image/17792057321731573408.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/DQTqAZdEPwU",
+  },
+  {
     name: "Motorvision",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/e/e7/Motorvision%2B_Logo_2023.svg",
