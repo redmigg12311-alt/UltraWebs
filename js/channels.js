@@ -401,7 +401,7 @@ const channels = [
     name: "Pixer Cars",
     category: "Kids",
     image: "https://i.ibb.co/MDtkJTt6/cars-seeklogo.png",
-    stream: "https://youtu.be/jnnvxM6SL0c",
+    stream: "https://youtu.be/RVORY42HQXM",
   },
   {
     name: "Phineas and Ferb",
@@ -415,7 +415,19 @@ const channels = [
     category: "Kids",
     image:
       "https://static.wikia.nocookie.net/logopedia/images/c/c5/Peppa_Pig.svg",
-    stream: "https://youtu.be/O2X7RDDL57c",
+    stream: "https://youtu.be/o9VXLSmD69M",
+  },
+  {
+    name: "Shaun The Sheep",
+    category: "Kids",
+    image: "https://i.ibb.co/zV5G5RNC/Shaun-The-Sheep.png",
+    stream: "https://youtu.be/n-jwyXXZhnk",
+  },
+  {
+    name: "Battle Bots",
+    category: "Kids",
+    image: "https://i.ibb.co/m56t0Ygp/battlebots-62c739f0d6b11.png",
+    stream: "https://youtu.be/uUevHstl-Ak",
   },
   {
     name: "Disney Junior",
@@ -466,6 +478,169 @@ const channels = [
     category: "Entertainment",
     image: "https://cdn.boltplus.tv/boltplus-global/assets/image/5mc-logo.png",
     stream: "https://soul-5mincrafteng-rakuten.amagi.tv/playlist.m3u8",
+  },
+  {
+    name: "Gubbare",
+    image: "https://i.ibb.co/xKBmbd36/Bvbf9o7.png",
+    category: "News",
+    stream: "https://epiconvh.akamaized.net/live/gubbare/master.m3u8",
+  },
+  {
+    name: "NDTV Good Time",
+    image:
+      "https://static.wikia.nocookie.net/logopedia/images/8/85/Goodtimes.png",
+    category: "LifeStyle",
+    stream:
+      "https://amg01448-samsungin-ndtvgoodtimes-samsungin-ad-gp.amagi.tv/playlist/amg01448-samsungin-ndtvgoodtimes-samsungin/playlist.m3u8",
+  },
+  {
+    name: "B4U Kadak",
+    image: "https://jiotvimages.cdn.jio.com/dare_images/images/B4U_Kadak.png",
+    category: "Movie",
+    stream: "https://cdnb4u.wiseplayout.com/B4U_Kadak/master.m3u8",
+  },
+  {
+    name: "Z Cinema HD",
+    image:
+      "https://static.wikia.nocookie.net/logopedia/images/c/c5/Zee_Cinema_HD_%282025%29.svg",
+    category: "Movie",
+    stream:
+      "https://amg17931-zee-amg17931c5-samsung-th-5696.playouts.now.amagi.tv/playlist/amg17931-asiatvusaltdfast-zeecinema-samsungth/playlist.m3u8",
+  },
+  {
+    name: "9X Jalwa",
+    image:
+      "https://static.wikia.nocookie.net/logopedia/images/2/21/9x_Jalwa.png",
+    category: "Music",
+    stream:
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/9x-jalwa/master.m3u8",
+  },
+  {
+    name: "Weather Spy",
+    image:
+      "https://v.fastcdn.co/t/ce0680fc/05c22bcb/1709567860-50673365-1918x534x1918x1080x0x274-WEATHERSPY-LOGO-WHIT.png",
+    category: "Weather",
+    stream: "https://jukin-weatherspy-2-in.samsung.wurl.tv/playlist.m3u8",
+  },
+  {
+    name: "1Animax",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/6/65/Animaxlogo-20160701.png",
+    category: "Anime",
+    stream:
+      "https://amg02159-kcglobal-amg02159c1-samsung-in-521.playouts.now.amagi.tv/playlist/amg02159-kcglobal-animax-samsungin/playlist.m3u8",
+  },
+  {
+    name: "Anime Lofi Music",
+    image:
+      "https://dbl-discord.usercontent.prism.gg/avatars/830530156048285716/7650d0c9ae84e6b11edc43028b90e392.png?size=480",
+    category: "Anime",
+    stream:
+      "https://youtu.be/x0hbDv_Y63c",
+  },
+  {
+    name: "Yu-Gi-Oh!",
+    image:
+      "https://static.wikia.nocookie.net/yugioh/images/6/6d/Yu-Gi-OhLogo.png",
+    category: "Anime",
+    stream:
+      "https://youtu.be/QAIcUkgSuKA",
+  },
+  {
+    name: "Anime Vanguard",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/1/18/Vg_new_logo.png",
+    category: "Anime",
+    stream:
+      "https://youtu.be/Y9nK_ERdvgE",
+  },
+  {
+    name: "Anileap",
+    image:
+      "https://www.musicman.co.jp/wp-content/uploads/2023/03/sub9.png",
+    category: "Anime",
+    stream:
+      "https://youtu.be/4FBW3mkdKOs",
+  },
+  {
+    name: "Dragon Ball Ultra",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Dragon_Ball_Super.png/1200px-Dragon_Ball_Super.png",
+    category: "Anime",
+    stream:
+      "https://youtu.be/UYFcyyVaaQ4",
+  },
+  {
+    name: "Ultimate Spider-Man",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/Ultimate_Spider-Man_%28TV_series%29_logo.svg/1200px-Ultimate_Spider-Man_%28TV_series%29_logo.svg.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/2PzfL3zrE-o",
+  },
+  {
+    name: "The Smurfs",
+    image:
+      "https://i.ibb.co/mFcHckgk/pngfind-com-smurf-png-2026501.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/I-TUCWGmrt8",
+  },
+  {
+    name: "GI Joe",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/Ultimate_Spider-Man_%28TV_series%29_logo.svg/1200px-Ultimate_Spider-Man_%28TV_series%29_logo.svg.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/TZ3mxF4U__k",
+  },
+  {
+    name: "PAW Patrol",
+    image:
+      "https://www.freeiconspng.com/uploads/paw-patrol-logo-png-18.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/6mb-CQ110Uo",
+  },
+  {
+    name: "Spider-Man",
+    image:
+      "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/34EA2EB994DCA40C9927EA53B016D24DDA8DE4F5DD83C9EFBCC1F5AB166DE60A/compose?aspectRatio=1.78&format=webp&width=600",
+    category: "Kids",
+    stream:
+      "https://youtu.be/yABPtUc7KOg",
+  },
+  {
+    name: "USA Network",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/USA_Network_logo_%282016%29.svg/512px-USA_Network_logo_%282016%29.svg.png",
+    category: "Entertainment",
+    stream: "http://fl7.moveonjoy.com/USA_NETWORK/index.m3u8",
+  },
+  {
+    name: "USA Network Latin America",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/USA_Network_logo_%282016%29.svg/512px-USA_Network_logo_%282016%29.svg.png",
+    category: "Entertainment",
+    stream:
+      "https://cors-proxy.cooks.fyi/https://streamer1.nexgen.bz/SYFY/index.m3u8",
+  },
+  {
+    name: "NBA TV",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/NBA_TV.svg/512px-NBA_TV.svg.png",
+    category: "Sports",
+    stream:
+      "https://amg00556-amg00556c3-firetv-us-6060.playouts.now.amagi.tv/playlist.m3u8",
+    stream: "https://fl7.moveonjoy.com/NBA_TV/index.m3u8",
+  },
+  {
+    name: "GO USA",
+    image: "https://i.imgur.com/x90ALip.png",
+    category: "Travel",
+    stream: "https://brandusa-gousa-1-in.samsung.wurl.tv/playlist.m3u8",
+    stream: "https://brandusa-gousa-1-nl.samsung.wurl.tv/playlist.m3u8",
+    stream: "https://brandusa-gousa-1-se.samsung.wurl.tv/playlist.m3u8",
   },
   // Add other channels...
 ];
