@@ -698,6 +698,22 @@ const channels = [
       "https://youtu.be/DQTqAZdEPwU",
   },
   {
+    name: "ABP Asmita",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/2/20/ABP_Asmita_logo.svg",
+    category: "News",
+    stream:
+      "https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/abp-asmita/master.m3u8",
+  },
+  {
+    name: "Epic",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/1/15/EPIC_logo_for_print.png",
+    category: "Entertainment",
+    stream:
+      "https://epiconvh.akamaized.net/live/epic/master.m3u8",
+  },
+  {
     name: "Motorvision",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/e/e7/Motorvision%2B_Logo_2023.svg",
