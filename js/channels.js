@@ -589,10 +589,18 @@ const channels = [
   {
     name: "GI Joe",
     image:
-      "https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/Ultimate_Spider-Man_%28TV_series%29_logo.svg/1200px-Ultimate_Spider-Man_%28TV_series%29_logo.svg.png",
+      "https://cdn.prod.website-files.com/64ea57571d50b02423c4505d/64fb2254d874220681d5f519_GI%20joe%20logo.png",
     category: "Kids",
     stream:
       "https://youtu.be/TZ3mxF4U__k",
+  },
+  {
+    name: "The Amazing World of Gumball",
+    image:
+      "https://i.ibb.co/S7ZzbS87/image.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/nIyaCRNwxhU",
   },
   {
     name: "PAW Patrol",
