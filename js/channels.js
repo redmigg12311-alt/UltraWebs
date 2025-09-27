@@ -714,6 +714,78 @@ const channels = [
       "https://epiconvh.akamaized.net/live/epic/master.m3u8",
   },
   {
+    name: "& TV HD",
+    image:
+      "https://static.wikia.nocookie.net/logopedia/images/4/4c/%26TV_HD_%282025%29.svg",
+    category: "Entertainment",
+    stream:
+      "https://amg01117-amg01117c1-amgplt0165.playout.now3.amagi.tv/playlist.m3u8",
+  },
+  {
+    name: "Colors Cineplex Bollywood",
+    image:
+      "https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Cineplex_Bollywood.png",
+    category: "Movie",
+    stream:
+      "https://nonprod-sports-cohort.jiocinema.com/bpk-tv/JC_ColorsCineplexBollywood/JCHLS/index.m3u8",
+  },
+  {
+    name: "Colors Cineplex Superhit",
+    image:
+      "https://jiotvimages.cdn.jio.com/dare_images/images/Rishtey_Cineplex.png",
+    category: "Movie",
+    stream:
+      "https://nonprod-sports-cohort.jiocinema.com/bpk-tv/JC_ColorsCineplexSuperhit/JCHLS/index.m3u8",
+  },
+  {
+    name: "Star Gold HD",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/5/55/Star_Gold_2020.svg",
+    category: "Movie",
+    stream:
+      "https://live.dinesh29.com.np/stream/jiotvplus/stargoldhd/master.m3u8",
+  },
+  {
+    name: "Star Gold 2 HD",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/c/cc/Star_Gold_2.svg",
+    category: "Movie",
+    stream:
+      "https://live.dinesh29.com.np/stream/jiotvplus/stargold2hd/master.m3u8",
+  },
+  {
+    name: "Star Gold Romance",
+    image:
+      "https://static.wikia.nocookie.net/logopedia/images/8/8a/Star_Gold_Romance.svg",
+    category: "Movie",
+    stream:
+      "https://live.dinesh29.com.np/stream/jiotvplus/stargoldromance/master.m3u8",
+  },
+  {
+    name: "Star Gold Thrills",
+    image:
+      "https://static.wikia.nocookie.net/logopedia/images/b/b7/Star_Gold_Thrills.svg",
+    category: "Movie",
+    stream:
+      "https://live.dinesh29.com.np/stream/jiotvplus/stargoldthrills/master.m3u8",
+  },
+  {
+    name: "Star Movies HD",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/5/54/STAR_Movies_logo.svg",
+    category: "Movie",
+    stream:
+      "https://live.dinesh29.com.np/stream/jiotvplus/starmovieshd/master.m3u8",
+  },
+  {
+    name: "Star Movie Select HD",
+    image:
+      "https://static.wikia.nocookie.net/logopedia/images/c/c5/SMSHD.png",
+    category: "Movie",
+    stream:
+      "https://live.dinesh29.com.np/stream/jiotvplus/starmoviesselecthd/master.m3u8",
+  },
+  {
     name: "Motorvision",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/e/e7/Motorvision%2B_Logo_2023.svg",
