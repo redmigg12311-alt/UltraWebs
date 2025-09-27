@@ -634,6 +634,62 @@ const channels = [
       "https://cors-proxy.cooks.fyi/https://streamer1.nexgen.bz/SYFY/index.m3u8",
   },
   {
+    name: "National Geographic",
+    image:
+      "https://i.ibb.co/RpNNL2bz/nge.png",
+    category: "Education",
+    stream:
+      "https://youtu.be/COtW-y631JA",
+  },
+  {
+    name: "Nat Geo Wild",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/3/3e/Nat_Geo_Wild_HD_logo.png",
+    category: "Education",
+    stream:
+      "https://youtu.be/THooYCltViI",
+  },
+  {
+    name: "Earthquake Alert Channel 24/7 Live 🔴",
+    image:
+      "https://www.jrustonapps.com/resources/images/app-icons/mea.png",
+    category: "Education",
+    stream:
+      "https://youtu.be/rvtygG4n6ew",
+  },
+  {
+    name: "Motorvision",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/e/e7/Motorvision%2B_Logo_2023.svg",
+    category: "Education",
+    stream:
+      "https://stream.ads.ottera.tv/playlist.m3u8?network_id=535",
+  },
+  {
+    name: "Top Gear Classic",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/5/5f/Top-Gear-Logo.png",
+    category: "Education",
+    stream:
+      "https://youtu.be/5Bw7xtfpUV4",
+  },
+  {
+    name: "Learn English",
+    image:
+      "https://theuniversalhr.com/images/english-learning-english.png",
+    category: "Education",
+    stream:
+      "https://youtu.be/k_2FA6vyOgM",
+  },
+  {
+    name: "Cloudflare TV",
+    image:
+      "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCAxMDEuNDUxIDEwMS40NTEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3R5bGU9InRyYW5zZm9ybTpzY2FsZSguODUpIj48Y2lyY2xlIGN4PSI1MC43MjYiIGN5PSI1MC43MjYiIHI9IjUwLjcyNiIgZmlsbD0iIzMzMyI+PC9jaXJjbGU+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIxNS44MzYgLTI3LjU2MSkiPjxwYXRoIGQ9Ik0yMzUuNzExLDcxLjE0N2E5LjgwNyw5LjgwNywwLDAsMSw5LjQyMy0xMS4yMjgsNi45LDYuOSwwLDAsMSwxMC44MjYtNy4yMzUsMTUuMzQyLDE1LjM0MiwwLDAsMSwyOS41LDEuNTg2Ljg1MS44NTEsMCwwLDEsLjAxNy4xNjYuODI3LjgyNywwLDAsMS0uMDUzLjNsLTEuMzQ0LDMuNTFhOC40MTMsOC40MTMsMCwwLDEtNi44NzksNS4xNjFsLTIzLjU1Ny4zYS42MjQuNjI0LDAsMCwwLS41NDIuNDE1LjQ3NC40NzQsMCwwLDAsLjA1LjQyMS40NjMuNDYzLDAsMCwwLC4zNjcuMmwyMy4zNDEuM2EzLjYsMy42LDAsMCwxLDIuODU2LDEuNDEzLDQuMDU4LDQuMDU4LDAsMCwxLC40MTQsMy41NDZsLS4zMzEsMS4xNDVhLjU2OS41NjksMCwwLDEtLjUzMy40MDdsLS4wMTMsMC00My4wOSwwQS40NTcuNDU3LDAsMCwxLDIzNS43MTEsNzEuMTQ3WiIgZmlsbD0iI2Y2ODIxZiI+PC9wYXRoPjxwYXRoIGQ9Ik0yOTkuODU2LDcxLjJhLjQ3Ni40NzYsMCwwLDEtLjQ1OS4zNDNoLTE3Ljc5bC0uMDE0LDBhLjI3Ni4yNzYsMCwwLDEtLjI0NS0uMzc0bC4zNzQtLjk3NmE4LjQxNSw4LjQxNSwwLDAsMSw2Ljg5MS01LjE2MWw1LjE3LS4zYS42MjUuNjI1LDAsMCwwLC41NDEtLjQxNS40Ny40NywwLDAsMC0uMDUyLS40MjMuNDU0LjQ1NCwwLDAsMC0uMzU1LS4xOTNsLTQuOTc1LS4zYTMuNiwzLjYsMCwwLDEtMi44NTYtMS40MTMsNC4wNTMsNC4wNTMsMCwwLDEtLjQxNC0zLjU0NWwuOTE4LTMuMTdhLjM3MS4zNzEsMCwwLDEsLjIzNS0uMjQ4LjM3OS4zNzksMCwwLDEsLjEtLjAyMmMuMjE1LS4wMS40My0uMDE2LjY0Ni0uMDE2QTEyLjc2OCwxMi43NjgsMCwwLDEsMjk5Ljg1Niw3MS4yWiIgZmlsbD0iI2ZiYWQ0MCI+PC9wYXRoPjxwYXRoIGQ9Ik0xLjM0My0yNS4xMjF2LTYuMTQzSDI3Ljc3MXY2LjE0M0gxOC4yODJWMGgtNy40NVYtMjUuMTIxWm0zNy42NjYtNi4xNDMsNi45ODUsMjIuOWguMjY5bDYuOTg1LTIyLjloOC40NjNMNTEuMTYsMEg0MS4xTDMwLjU0Ni0zMS4yNjRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzYuNjE4IDExMC4wNikiIGZpbGw9IiNmZmYiPjwvcGF0aD48L2c+PC9zdmc+",
+    category: "Education",
+    stream:
+      "https://cloudflare.tv/hls/live.m3u8",
+  },
+  {
     name: "NBA TV",
     image:
       "https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/NBA_TV.svg/512px-NBA_TV.svg.png",
