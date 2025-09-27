@@ -144,7 +144,6 @@
         .jwplayer,
         .jwplayer * {
             font-family: 'Space Grotesk', sans-serif !important;
-            font-size: 13px !important;
             /* compact */
             line-height: 1.4 !important;
             letter-spacing: 0.2px;
@@ -264,6 +263,7 @@
         const kidKey = params.get("keyid");
         const channelName = params.get("channel");
         const logoUrl = params.get("logo");
+        const captions = params.get("captions"); // extra param for subtitle file
 
         function setMeta(tagName, attrName, content) {
             let tag = document.querySelector(`${tagName}[${attrName}]`);
@@ -303,7 +303,18 @@
             document.querySelector(".video-wrapper").innerHTML = "<h2>No video source provided.</h2>";
         } else {
             const type = getSourceType(src);
-            const playerConfig = { file: src, type, autostart: true, mute: true, controls: true, width: "100%", aspectratio: "16:9", skin: { name: "glow" }, playbackRateControls: true };
+            const playerConfig = {
+                file: src,
+                type,
+                autostart: true,
+                mute: true,
+                controls: true,
+                width: "100%",
+                aspectratio: "16:9",
+                playbackRateControls: true,
+                cast: {},              // ✅ Chromecast enabled
+                airplay: true,         // ✅ Apple AirPlay enabled
+            };
 
             // DASH DRM handling
             if (type === "dash" && kidKey && kidKey.includes(":")) {
@@ -311,7 +322,24 @@
                 playerConfig.drm = { clearkey: { keyId, key } };
             }
 
-            jwplayer("player").setup(playerConfig);
+            // ✅ Captions handling
+            if (captions) {
+                playerConfig.tracks = [
+                    {
+                        file: captions,
+                        kind: "captions",
+                        label: "English",
+                        default: true
+                    }
+                ];
+            }
+
+            const player = jwplayer("player").setup(playerConfig);
+
+            // Force captions button visible
+            player.on("ready", () => {
+                player.setCurrentCaptions(1); // enable first caption track if available
+            });
         }
 
         fetch("header.html")
@@ -327,7 +355,10 @@
                     });
                 }
             });
-        fetch("footer.html").then(res => res.text()).then(data => { document.getElementById("footer-container").innerHTML = data; });
+
+        fetch("footer.html").then(res => res.text()).then(data => {
+            document.getElementById("footer-container").innerHTML = data;
+        });
 
         document.getElementById("play-overlay").addEventListener("click", () => {
             const player = jwplayer("player");
@@ -336,6 +367,7 @@
             document.getElementById("play-overlay").style.display = "none";
         });
     </script>
+
 </body>
 
 </html>
