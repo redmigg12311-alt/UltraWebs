@@ -381,7 +381,7 @@ const channels = [
   {
     name: "Tom and Jerry",
     category: "Kids",
-    image: "https://pngimg.com/d/tom_and_jerry_PNG42.png",
+    image: "https://i.ibb.co/cXp8SFKR/tom-and-jerry-PNG42.png",
     stream: "https://youtu.be/rEKifG2XUZg",
   },
   {
