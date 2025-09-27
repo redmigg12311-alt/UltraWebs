@@ -658,6 +658,38 @@ const channels = [
       "https://youtu.be/rvtygG4n6ew",
   },
   {
+    name: "Batman",
+    image:
+      "https://cdn.freebiesupply.com/logos/large/2x/batman-3-logo-png-transparent.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/TTUMev7J8jQ",
+  },
+  {
+    name: "Emma And Joey - Nursery Rhymes",
+    image:
+      "https://i.ibb.co/0y2CDMZs/image.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/-VBxijFm50Y",
+  },
+  {
+    name: "G.I. JOE Renegades",
+    image:
+      "https://i.ibb.co/27s97XQ2/gi-joe-renegades-680e2de395de3.png",
+    category: "Kids",
+    stream:
+      "https://youtu.be/Bu8AbtM0xA4",
+  },
+  {
+    name: "Chu Chu TV - Phonics Song ",
+    image:
+      "https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/S4oi7EPZbv2UEPaukW54OORa0S8/AAAABa3DdoM-tl16phbsU0YyX8VGZLrFDbxNZ1H7kv5OWRpYgdbrNukBx407cgWbgXabFKtN05iN7Qy2pcJ_LKkijHwvYISa68LnQ2I.png?r=6ef",
+    category: "Kids",
+    stream:
+      "https://youtu.be/KU2Nx63olF4",
+  },
+  {
     name: "Motorvision",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/e/e7/Motorvision%2B_Logo_2023.svg",
