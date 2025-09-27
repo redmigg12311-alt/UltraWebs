@@ -482,7 +482,7 @@ const channels = [
   {
     name: "Gubbare",
     image: "https://i.ibb.co/xKBmbd36/Bvbf9o7.png",
-    category: "News",
+    category: "Kids",
     stream: "https://epiconvh.akamaized.net/live/gubbare/master.m3u8",
   },
   {
