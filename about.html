@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | UltraWebs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Space Grotesk", sans-serif;
+            background: url("https://wallpapercave.com/wp/wp15392660.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100%;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+        }
+
+
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 2rem 2rem;
+            /* default padding top/bottom 2rem, left/right 2rem */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Responsive: add more spacing on small screens */
+        @media(max-width:768px) {
+            .container {
+                padding: 2rem 1.5rem;
+                /* smaller horizontal padding */
+                margin: 2rem 1rem;
+                /* small top/bottom margin and extra left/right margin */
+            }
+        }
+
+
+        h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #00e5ff;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #00e5ff;
+            margin: 2rem 0 1rem;
+            border-left: 4px solid #00e5ff;
+            padding-left: 0.8rem;
+        }
+
+        p {
+            line-height: 1.7;
+            color: #ddd;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .card {
+            flex: 1 1 250px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.4);
+        }
+
+        .card i {
+            font-size: 2.2rem;
+            color: #00e5ff;
+            margin-bottom: 0.7rem;
+            display: block;
+        }
+
+        .card h3 {
+            margin: 0.8rem 0;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        /* Team Member */
+        .team-member img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00e5ff;
+            transition: transform 0.3s ease;
+            margin-bottom: 0.7rem;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Circular Stats */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .circular-stat {
+            position: relative;
+            width: 140px;
+            height: 140px;
+        }
+
+        .circular-stat svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+
+        .circular-stat circle {
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+
+        .circular-stat .bg {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+
+        .circular-stat .progress {
+            stroke: url(#gradient);
+            stroke-dasharray: 345;
+            stroke-dashoffset: 345;
+            transition: stroke-dashoffset 2s ease;
+        }
+
+        .circular-stat .stat-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        /* FAQ */
+        .faq {
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 1.2rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(0, 229, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 229, 255, 0.35);
+        }
+
+        .faq-item>div:first-child {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.2rem;
+            font-weight: 500;
+        }
+
+        .faq-item i {
+            margin-right: 0.7rem;
+            font-size: 1.6rem;
+            color: #00e5ff;
+        }
+
+        .faq-item span {
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            padding: 0 1.2rem;
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active span {
+            transform: rotate(45deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0.8rem 1.2rem;
+        }
+
+        /* Disclaimer */
+        .disclaimer-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.2rem;
+            border-radius: 1rem;
+            background: rgba(255, 69, 0, 0.1);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+        }
+
+        .disclaimer-box i {
+            font-size: 2rem;
+            color: #ff4500;
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+
+            .cards,
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .circular-stat {
+                width: 120px;
+                height: 120px;
+            }
+
+            .circular-stat .stat-value {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <h1>About UltraWebs</h1>
+
+        <h2>Our Story</h2>
+        <p>Founded in 2024 by Harit Mengar, UltraWebs started as a small project to explore streaming technology. Over
+            the years, it has evolved into a platform capable of delivering seamless, high-quality content to users
+            worldwide.</p>
+
+        <h2>Why Choose Us</h2>
+        <div class="cards">
+            <div class="card"><i class="material-icons">speed</i>
+                <h3>Fast Streaming</h3>
+                <p>Optimized delivery ensures minimal buffering and instant access to live and on-demand content.</p>
+            </div>
+            <div class="card"><i class="material-icons">devices</i>
+                <h3>Multi-Platform</h3>
+                <p>Available on web, mobile, and smart TVs to keep you connected anywhere, anytime.</p>
+            </div>
+            <div class="card"><i class="material-icons">support</i>
+                <h3>24/7 Support</h3>
+                <p>Our dedicated team ensures you get assistance whenever you need it.</p>
+            </div>
+        </div>
+
+        <h2>Core Values</h2>
+        <div class="cards">
+            <div class="card"><i class="material-icons">bolt</i>
+                <h3>Innovation</h3>
+                <p>Constantly improving our tech to stay ahead in the digital entertainment world.</p>
+            </div>
+            <div class="card"><i class="material-icons">groups</i>
+                <h3>Community</h3>
+                <p>We value our global audience and foster strong connections with our users.</p>
+            </div>
+            <div class="card"><i class="material-icons">security</i>
+                <h3>Reliability</h3>
+                <p>Ensuring stable, secure, and smooth streaming experiences for all users.</p>
+            </div>
+        </div>
+
+        <h2>Meet Our Founder</h2>
+        <div class="cards team">
+            <div class="card team-member"><img src="assets\user\IMG_9812.PNG" alt="Harit Mengar">
+                <h4>Harit Mengar</h4>
+                <p>Founder & CEO</p>
+            </div>
+        </div>
+
+        <h2>Global Achievements</h2>
+        <div class="stats-container">
+            <div class="circular-stat">
+                <svg>
+                    <defs>
+                        <linearGradient id="gradient" x1="1" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00e5ff" />
+                            <stop offset="100%" stop-color="#4caf50" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="bg" cx="65" cy="65" r="55"></circle>
+                    <circle class="progress" cx="65" cy="65" r="55"></circle>
+                </svg>
+                <div class="stat-value" id="streams">0</div>
+                <p style="text-align:center;margin-top:5px;">Live Streams</p>
+            </div>
+
+            <div class="circular-stat">
+                <svg>
+                    <defs>
+                        <linearGradient id="gradient2" x1="1" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00e5ff" />
+                            <stop offset="100%" stop-color="#fbc02d" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="bg" cx="65" cy="65" r="55"></circle>
+                    <circle class="progress" cx="65" cy="65" r="55" stroke="url(#gradient2)"></circle>
+                </svg>
+                <div class="stat-value" id="users">0</div>
+                <p style="text-align:center;margin-top:5px;">Active Users</p>
+            </div>
+
+            <div class="circular-stat">
+                <svg>
+                    <defs>
+                        <linearGradient id="gradient3" x1="1" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00e5ff" />
+                            <stop offset="100%" stop-color="#ff4081" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="bg" cx="65" cy="65" r="55"></circle>
+                    <circle class="progress" cx="65" cy="65" r="55" stroke="url(#gradient3)"></circle>
+                </svg>
+                <div class="stat-value" id="countries">0</div>
+                <p style="text-align:center;margin-top:5px;">Countries Reached</p>
+            </div>
+        </div>
+
+        <h2>Disclaimer</h2>
+        <div class="disclaimer-box"><i class="material-icons">warning</i>
+            <p><strong>UltraWebs</strong> is developed solely for <strong>educational purposes</strong>. It demonstrates
+                web development skills and is not meant for commercial use.</p>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <div><i class="material-icons">help_outline</i> What is UltraWebs?<span>+</span></div>
+                <div class="faq-answer">UltraWebs is an educational project showcasing a streaming platform.</div>
+            </div>
+            <div class="faq-item">
+                <div><i class="material-icons">help_outline</i> Is this commercial?<span>+</span></div>
+                <div class="faq-answer">No, strictly educational.</div>
+            </div>
+            <div class="faq-item">
+                <div><i class="material-icons">help_outline</i> Who is the founder?<span>+</span></div>
+                <div class="faq-answer">Created by Harit Mengar.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+
+    <script>
+        fetch("favicon.html")
+            .then((res) => res.text())
+            .then((data) => document.head.insertAdjacentHTML("beforeend", data));
+
+        // Load header
+        fetch("header.html")
+            .then((res) => res.text())
+            .then((data) => {
+                document.getElementById("header-placeholder").innerHTML = data;
+                const menuToggle = document.querySelector(".menu-toggle");
+                const nav = document.querySelector(".nav");
+                if (menuToggle && nav) {
+                    menuToggle.addEventListener("click", () => nav.classList.toggle("show"));
+                    document.querySelectorAll(".nav a").forEach((link) => {
+                        link.addEventListener("click", () => nav.classList.remove("show"));
+                    });
+                }
+            });
+
+        // Load footer
+        fetch("footer.html")
+            .then((res) => res.text())
+            .then(
+                (data) => (document.getElementById("footer-container").innerHTML = data)
+            );
+
+    </script>
+
+    <script>
+        // Animate Circular Stats with gradient
+        function animateCircularStat(id, target) {
+            const valueEl = document.getElementById(id);
+            const circle = valueEl.parentElement.querySelector('.progress');
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            circle.style.strokeDasharray = circumference;
+            circle.style.strokeDashoffset = circumference;
+            let counter = 0;
+            const step = Math.ceil(target / 120);
+            const interval = setInterval(() => {
+                counter += step;
+                if (counter > target) counter = target;
+                valueEl.textContent = counter.toLocaleString() + "+";
+                const offset = circumference - (counter / target) * circumference;
+                circle.style.strokeDashoffset = offset;
+                if (counter >= target) clearInterval(interval);
+            }, 20);
+        }
+        animateCircularStat('streams', 800);
+        animateCircularStat('users', 8500);
+        animateCircularStat('countries', 10);
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const ans = item.querySelector('.faq-answer');
+                item.classList.toggle('active');
+                if (ans.style.maxHeight) { ans.style.maxHeight = null; }
+                else { ans.style.maxHeight = ans.scrollHeight + "px"; }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
