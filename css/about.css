@@ -250,6 +250,7 @@ h2.section-title::after {
 
 /* Strong text inside paragraphs */
 .disclaimer p strong {
+  text-align: start;
   font-size: 1.1rem;
   display: inline-block;
   margin-bottom: 0.5rem;

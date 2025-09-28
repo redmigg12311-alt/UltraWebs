@@ -1,8 +1,3 @@
-// Load favicon
-fetch("favicon.html")
-  .then((res) => res.text())
-  .then((data) => document.head.insertAdjacentHTML("beforeend", data));
-
 // Load header
 fetch("header.html")
   .then((res) => res.text())
