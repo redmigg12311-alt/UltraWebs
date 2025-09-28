@@ -1,5 +1,4 @@
 // FAQ toggle
-// FAQ toggle
 document.querySelectorAll(".faq-question").forEach((q) => {
   q.addEventListener("click", () => {
     const item = q.parentElement;
@@ -23,11 +22,6 @@ document.querySelectorAll(".faq-question").forEach((q) => {
     }
   });
 });
-
-// Load Favicon
-fetch("favicon.html")
-  .then((res) => res.text())
-  .then((data) => document.head.insertAdjacentHTML("beforeend", data));
 
 // Load header
 fetch("header.html")
