@@ -108,7 +108,7 @@ Here are previews of the pages:
 ### Player Page
 ![Player Page Screenshot](assets/screenshot/UL/player.png)
 
-### Search Page (`search.html`)
+### Search Page
 ![Search Page Screenshot](assets/screenshot/UL/search.png)
 ![Search Output Screenshot](assets/screenshot/UL/searchouput.png)
 
