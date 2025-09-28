@@ -133,11 +133,9 @@
 
     <!-- Firebase & Form Script -->
     <script type="module">
-        // Import Firebase SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-        // Your Firebase config (new project)
         const firebaseConfig = {
             apiKey: "AIzaSyAtgLji44mPNhTu_A6mlQg2OltsD3PmFxE",
             authDomain: "ultrawebs-livestream.firebaseapp.com",
@@ -148,9 +146,11 @@
             measurementId: "G-BR2QYT87D4"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+
+        // Keep track of loading interval
+        let loadingInterval = null;
 
         // Popup function
         function showPopup(message, type = "success") {
@@ -158,22 +158,44 @@
             const popupMsg = document.getElementById("popup-message");
             const icon = popup.querySelector(".material-icons");
 
+            // Clear any previous animation
+            if (loadingInterval) {
+                clearInterval(loadingInterval);
+                loadingInterval = null;
+            }
+
             popup.className = "";
             popup.classList.add("show", type);
 
             if (type === "success") {
                 icon.textContent = "check_circle";
-            } else {
+            } else if (type === "error") {
                 icon.textContent = "error";
+            } else if (type === "loading") {
+                icon.textContent = "hourglass_top";
+                // Start animated dots
+                let dots = 0;
+                popupMsg.textContent = message;
+                loadingInterval = setInterval(() => {
+                    if (!popup.classList.contains("show")) {
+                        clearInterval(loadingInterval);
+                        loadingInterval = null;
+                        return;
+                    }
+                    dots = (dots + 1) % 4;
+                    popupMsg.textContent = message + ".".repeat(dots);
+                }, 500);
             }
 
             popupMsg.textContent = message;
             popup.style.display = "flex";
 
-            setTimeout(() => {
-                popup.classList.remove("show");
-                setTimeout(() => popup.style.display = "none", 300);
-            }, 3500);
+            if (type !== "loading") {
+                setTimeout(() => {
+                    popup.classList.remove("show");
+                    setTimeout(() => (popup.style.display = "none"), 300);
+                }, 3500);
+            }
         }
 
         // Handle contact form submit
@@ -181,21 +203,34 @@
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            // Professional sending message
+            showPopup("We’re processing your request, please wait", "loading");
 
             try {
-                await addDoc(collection(db, "messages"), {
+                // Custom doc ID: name + readable date
+                const now = new Date();
+                const safeName = name.replace(/\s+/g, "_").toLowerCase();
+                const docId =
+                    safeName +
+                    "_" +
+                    now.toISOString().replace(/[-:.TZ]/g, "").slice(0, 14);
+                // e.g. john_doe_20250928T1432
+
+                await setDoc(doc(db, "messages", docId), {
                     name,
                     email,
                     message,
-                    timestamp: new Date()
+                    timestamp: now
                 });
+
                 showPopup("Your message has been sent successfully.", "success");
                 form.reset();
             } catch (error) {
-                console.error("❌ Error adding document: ", error);
+                console.error("❌ Error saving document: ", error);
                 showPopup("An error occurred. Please try again later.", "error");
             }
         });
