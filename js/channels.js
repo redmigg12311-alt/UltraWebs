@@ -535,88 +535,73 @@ const channels = [
     image:
       "https://dbl-discord.usercontent.prism.gg/avatars/830530156048285716/7650d0c9ae84e6b11edc43028b90e392.png?size=480",
     category: "Anime",
-    stream:
-      "https://youtu.be/x0hbDv_Y63c",
+    stream: "https://youtu.be/x0hbDv_Y63c",
   },
   {
     name: "Yu-Gi-Oh!",
     image:
       "https://static.wikia.nocookie.net/yugioh/images/6/6d/Yu-Gi-OhLogo.png",
     category: "Anime",
-    stream:
-      "https://youtu.be/QAIcUkgSuKA",
+    stream: "https://youtu.be/QAIcUkgSuKA",
   },
   {
     name: "Anime Vanguard",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/1/18/Vg_new_logo.png",
     category: "Anime",
-    stream:
-      "https://youtu.be/Y9nK_ERdvgE",
+    stream: "https://youtu.be/Y9nK_ERdvgE",
   },
   {
     name: "Anileap",
-    image:
-      "https://www.musicman.co.jp/wp-content/uploads/2023/03/sub9.png",
+    image: "https://www.musicman.co.jp/wp-content/uploads/2023/03/sub9.png",
     category: "Anime",
-    stream:
-      "https://youtu.be/4FBW3mkdKOs",
+    stream: "https://youtu.be/4FBW3mkdKOs",
   },
   {
     name: "Dragon Ball Ultra",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Dragon_Ball_Super.png/1200px-Dragon_Ball_Super.png",
     category: "Anime",
-    stream:
-      "https://youtu.be/UYFcyyVaaQ4",
+    stream: "https://youtu.be/UYFcyyVaaQ4",
   },
   {
     name: "Ultimate Spider-Man",
     image:
       "https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/Ultimate_Spider-Man_%28TV_series%29_logo.svg/1200px-Ultimate_Spider-Man_%28TV_series%29_logo.svg.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/2PzfL3zrE-o",
+    stream: "https://youtu.be/2PzfL3zrE-o",
   },
   {
     name: "The Smurfs",
-    image:
-      "https://i.ibb.co/mFcHckgk/pngfind-com-smurf-png-2026501.png",
+    image: "https://i.ibb.co/mFcHckgk/pngfind-com-smurf-png-2026501.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/I-TUCWGmrt8",
+    stream: "https://youtu.be/I-TUCWGmrt8",
   },
   {
     name: "GI Joe",
     image:
       "https://cdn.prod.website-files.com/64ea57571d50b02423c4505d/64fb2254d874220681d5f519_GI%20joe%20logo.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/TZ3mxF4U__k",
+    stream: "https://youtu.be/TZ3mxF4U__k",
   },
   {
     name: "The Amazing World of Gumball",
-    image:
-      "https://i.ibb.co/S7ZzbS87/image.png",
+    image: "https://i.ibb.co/S7ZzbS87/image.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/nIyaCRNwxhU",
+    stream: "https://youtu.be/nIyaCRNwxhU",
   },
   {
     name: "PAW Patrol",
-    image:
-      "https://www.freeiconspng.com/uploads/paw-patrol-logo-png-18.png",
+    image: "https://www.freeiconspng.com/uploads/paw-patrol-logo-png-18.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/6mb-CQ110Uo",
+    stream: "https://youtu.be/6mb-CQ110Uo",
   },
   {
     name: "Spider-Man",
     image:
       "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/34EA2EB994DCA40C9927EA53B016D24DDA8DE4F5DD83C9EFBCC1F5AB166DE60A/compose?aspectRatio=1.78&format=webp&width=600",
     category: "Kids",
-    stream:
-      "https://youtu.be/yABPtUc7KOg",
+    stream: "https://youtu.be/yABPtUc7KOg",
   },
   {
     name: "USA Network",
@@ -635,67 +620,55 @@ const channels = [
   },
   {
     name: "National Geographic",
-    image:
-      "https://i.ibb.co/RpNNL2bz/nge.png",
+    image: "https://i.ibb.co/RpNNL2bz/nge.png",
     category: "Education",
-    stream:
-      "https://youtu.be/COtW-y631JA",
+    stream: "https://youtu.be/COtW-y631JA",
   },
   {
     name: "Nat Geo Wild",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/3/3e/Nat_Geo_Wild_HD_logo.png",
     category: "Education",
-    stream:
-      "https://youtu.be/THooYCltViI",
+    stream: "https://youtu.be/THooYCltViI",
   },
   {
     name: "Earthquake Alert Channel 24/7 Live 🔴",
-    image:
-      "https://www.jrustonapps.com/resources/images/app-icons/mea.png",
+    image: "https://www.jrustonapps.com/resources/images/app-icons/mea.png",
     category: "Education",
-    stream:
-      "https://youtu.be/rvtygG4n6ew",
+    stream: "https://youtu.be/rvtygG4n6ew",
   },
   {
     name: "Batman",
     image:
       "https://cdn.freebiesupply.com/logos/large/2x/batman-3-logo-png-transparent.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/TTUMev7J8jQ",
+    stream: "https://youtu.be/TTUMev7J8jQ",
   },
   {
     name: "Emma And Joey - Nursery Rhymes",
-    image:
-      "https://i.ibb.co/0y2CDMZs/image.png",
+    image: "https://i.ibb.co/0y2CDMZs/image.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/-VBxijFm50Y",
+    stream: "https://youtu.be/-VBxijFm50Y",
   },
   {
     name: "G.I. JOE Renegades",
-    image:
-      "https://i.ibb.co/27s97XQ2/gi-joe-renegades-680e2de395de3.png",
+    image: "https://i.ibb.co/27s97XQ2/gi-joe-renegades-680e2de395de3.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/Bu8AbtM0xA4",
+    stream: "https://youtu.be/Bu8AbtM0xA4",
   },
   {
     name: "Chu Chu TV - Phonics Song ",
     image:
       "https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/S4oi7EPZbv2UEPaukW54OORa0S8/AAAABa3DdoM-tl16phbsU0YyX8VGZLrFDbxNZ1H7kv5OWRpYgdbrNukBx407cgWbgXabFKtN05iN7Qy2pcJ_LKkijHwvYISa68LnQ2I.png?r=6ef",
     category: "Kids",
-    stream:
-      "https://youtu.be/KU2Nx63olF4",
+    stream: "https://youtu.be/KU2Nx63olF4",
   },
   {
     name: "One Puch Man ",
     image:
       "https://api.duniagames.co.id/api/product/upload/image/17792057321731573408.png",
     category: "Kids",
-    stream:
-      "https://youtu.be/DQTqAZdEPwU",
+    stream: "https://youtu.be/DQTqAZdEPwU",
   },
   {
     name: "ABP Asmita",
@@ -710,8 +683,7 @@ const channels = [
     image:
       "https://upload.wikimedia.org/wikipedia/commons/1/15/EPIC_logo_for_print.png",
     category: "Entertainment",
-    stream:
-      "https://epiconvh.akamaized.net/live/epic/master.m3u8",
+    stream: "https://epiconvh.akamaized.net/live/epic/master.m3u8",
   },
   {
     name: "& TV HD",
@@ -779,8 +751,7 @@ const channels = [
   },
   {
     name: "Star Movie Select HD",
-    image:
-      "https://static.wikia.nocookie.net/logopedia/images/c/c5/SMSHD.png",
+    image: "https://static.wikia.nocookie.net/logopedia/images/c/c5/SMSHD.png",
     category: "Movie",
     stream:
       "https://live.dinesh29.com.np/stream/jiotvplus/starmoviesselecthd/master.m3u8",
@@ -790,32 +761,27 @@ const channels = [
     image:
       "https://upload.wikimedia.org/wikipedia/commons/e/e7/Motorvision%2B_Logo_2023.svg",
     category: "Education",
-    stream:
-      "https://stream.ads.ottera.tv/playlist.m3u8?network_id=535",
+    stream: "https://stream.ads.ottera.tv/playlist.m3u8?network_id=535",
   },
   {
     name: "Top Gear Classic",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/5/5f/Top-Gear-Logo.png",
     category: "Education",
-    stream:
-      "https://youtu.be/5Bw7xtfpUV4",
+    stream: "https://youtu.be/5Bw7xtfpUV4",
   },
   {
     name: "Learn English",
-    image:
-      "https://theuniversalhr.com/images/english-learning-english.png",
+    image: "https://theuniversalhr.com/images/english-learning-english.png",
     category: "Education",
-    stream:
-      "https://youtu.be/k_2FA6vyOgM",
+    stream: "https://youtu.be/k_2FA6vyOgM",
   },
   {
     name: "Cloudflare TV",
     image:
       "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCAxMDEuNDUxIDEwMS40NTEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3R5bGU9InRyYW5zZm9ybTpzY2FsZSguODUpIj48Y2lyY2xlIGN4PSI1MC43MjYiIGN5PSI1MC43MjYiIHI9IjUwLjcyNiIgZmlsbD0iIzMzMyI+PC9jaXJjbGU+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIxNS44MzYgLTI3LjU2MSkiPjxwYXRoIGQ9Ik0yMzUuNzExLDcxLjE0N2E5LjgwNyw5LjgwNywwLDAsMSw5LjQyMy0xMS4yMjgsNi45LDYuOSwwLDAsMSwxMC44MjYtNy4yMzUsMTUuMzQyLDE1LjM0MiwwLDAsMSwyOS41LDEuNTg2Ljg1MS44NTEsMCwwLDEsLjAxNy4xNjYuODI3LjgyNywwLDAsMS0uMDUzLjNsLTEuMzQ0LDMuNTFhOC40MTMsOC40MTMsMCwwLDEtNi44NzksNS4xNjFsLTIzLjU1Ny4zYS42MjQuNjI0LDAsMCwwLS41NDIuNDE1LjQ3NC40NzQsMCwwLDAsLjA1LjQyMS40NjMuNDYzLDAsMCwwLC4zNjcuMmwyMy4zNDEuM2EzLjYsMy42LDAsMCwxLDIuODU2LDEuNDEzLDQuMDU4LDQuMDU4LDAsMCwxLC40MTQsMy41NDZsLS4zMzEsMS4xNDVhLjU2OS41NjksMCwwLDEtLjUzMy40MDdsLS4wMTMsMC00My4wOSwwQS40NTcuNDU3LDAsMCwxLDIzNS43MTEsNzEuMTQ3WiIgZmlsbD0iI2Y2ODIxZiI+PC9wYXRoPjxwYXRoIGQ9Ik0yOTkuODU2LDcxLjJhLjQ3Ni40NzYsMCwwLDEtLjQ1OS4zNDNoLTE3Ljc5bC0uMDE0LDBhLjI3Ni4yNzYsMCwwLDEtLjI0NS0uMzc0bC4zNzQtLjk3NmE4LjQxNSw4LjQxNSwwLDAsMSw2Ljg5MS01LjE2MWw1LjE3LS4zYS42MjUuNjI1LDAsMCwwLC41NDEtLjQxNS40Ny40NywwLDAsMC0uMDUyLS40MjMuNDU0LjQ1NCwwLDAsMC0uMzU1LS4xOTNsLTQuOTc1LS4zYTMuNiwzLjYsMCwwLDEtMi44NTYtMS40MTMsNC4wNTMsNC4wNTMsMCwwLDEtLjQxNC0zLjU0NWwuOTE4LTMuMTdhLjM3MS4zNzEsMCwwLDEsLjIzNS0uMjQ4LjM3OS4zNzksMCwwLDEsLjEtLjAyMmMuMjE1LS4wMS40My0uMDE2LjY0Ni0uMDE2QTEyLjc2OCwxMi43NjgsMCwwLDEsMjk5Ljg1Niw3MS4yWiIgZmlsbD0iI2ZiYWQ0MCI+PC9wYXRoPjxwYXRoIGQ9Ik0xLjM0My0yNS4xMjF2LTYuMTQzSDI3Ljc3MXY2LjE0M0gxOC4yODJWMGgtNy40NVYtMjUuMTIxWm0zNy42NjYtNi4xNDMsNi45ODUsMjIuOWguMjY5bDYuOTg1LTIyLjloOC40NjNMNTEuMTYsMEg0MS4xTDMwLjU0Ni0zMS4yNjRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzYuNjE4IDExMC4wNikiIGZpbGw9IiNmZmYiPjwvcGF0aD48L2c+PC9zdmc+",
     category: "Education",
-    stream:
-      "https://cloudflare.tv/hls/live.m3u8",
+    stream: "https://cloudflare.tv/hls/live.m3u8",
   },
   {
     name: "NBA TV",
@@ -839,6 +805,10 @@ const channels = [
 
 /* -------------------------
    Helper Functions
+------------------------- */
+
+/* -------------------------
+   Utility Functions
 ------------------------- */
 
 function getChannelSource(channel) {
@@ -901,7 +871,154 @@ function extractYouTubeId(input) {
 }
 
 /* -------------------------
-   Load Channels
+   YouTube Player
+------------------------- */
+
+function createYouTubeModalIfNeeded() {
+  let modal = document.getElementById("ytModal");
+  if (modal) return modal;
+
+  modal = document.createElement("div");
+  modal.id = "ytModal";
+  modal.style.cssText = `
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.85);
+    z-index: 99999;
+    padding: 20px;
+  `;
+
+  modal.innerHTML = `
+    <div id="ytBox" style="
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      background: transparent;
+      border-radius: 10px;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    ">
+      <button id="ytClose" aria-label="close" style="
+        margin-bottom: 4px;
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      ">×</button>
+
+      <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 10px; overflow: hidden;">
+        <iframe id="ytFrame" src="" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
+          style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 10px;"></iframe>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  const closeBtn = modal.querySelector("#ytClose");
+
+  closeBtn.addEventListener("mouseenter", () => {
+    closeBtn.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+    closeBtn.style.boxShadow = "0 8px 40px rgba(255, 255, 255, 0.4)";
+  });
+  closeBtn.addEventListener("mouseleave", () => {
+    closeBtn.style.backgroundColor = "rgba(255, 255, 255, 0.15)";
+    closeBtn.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.1)";
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeYouTube();
+  });
+
+  closeBtn.addEventListener("click", closeYouTube);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeYouTube();
+  });
+
+  return modal;
+}
+
+function openYouTube(url, channel) {
+  const id = extractYouTubeId(url);
+  if (!id) {
+    console.error("Unable to extract YouTube ID from:", url);
+    alert(
+      "This YouTube URL is not valid or the video ID couldn't be detected."
+    );
+    return;
+  }
+
+  const embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+
+  const modal = createYouTubeModalIfNeeded();
+  const iframe = modal.querySelector("#ytFrame");
+  if (!iframe) {
+    console.error("ytFrame not found inside modal.");
+    return;
+  }
+
+  iframe.src = embedUrl;
+  modal.style.display = "flex";
+
+  console.log(
+    `Playing YouTube: ${
+      channel && channel.name ? channel.name + " - " : ""
+    }${id}`
+  );
+}
+
+function closeYouTube() {
+  const modal = document.getElementById("ytModal");
+  if (!modal) return;
+  const iframe = modal.querySelector("#ytFrame");
+  if (iframe) iframe.src = "";
+  modal.style.display = "none";
+}
+
+/* -------------------------
+   M3U8 / MPD Player Navigation
+------------------------- */
+function navigateToPlayer(src, drmKey, nameSafe, imageUrl) {
+  const type = getStreamType(src);
+  let url = `player.html?play=${encodeURIComponent(src)}`;
+
+  // Only attach DRM params if it's a DASH stream with a valid drmKey
+  if (type === "dash" && drmKey && drmKey.trim() !== "") {
+    url += `&drm=clearkey&keyid=${encodeURIComponent(drmKey)}`;
+  }
+
+  // Always append channel + logo info
+  if (nameSafe) {
+    url += `&channel=${encodeURIComponent(nameSafe)}`;
+  }
+  if (imageUrl) {
+    url += `&logo=${encodeURIComponent(imageUrl)}`;
+  }
+
+  // Navigate to player page
+  window.location.href = url;
+}
+
+/* -------------------------
+   Load Channels and Handle Clicks
 ------------------------- */
 
 function loadChannels() {
@@ -982,14 +1099,7 @@ function loadChannels() {
           return;
         }
 
-        let url = `player.html?play=${encodeURIComponent(src)}`;
-        if (type === "dash" && channel.drmKey) {
-          url += `&drm=clearkey&keyid=${encodeURIComponent(channel.drmKey)}`;
-        }
-        url += `&channel=${encodeURIComponent(
-          nameSafe
-        )}&logo=${encodeURIComponent(imageUrl)}`;
-        window.location.href = url;
+        navigateToPlayer(src, channel.drmKey, nameSafe, imageUrl);
       });
 
       sectionGrid.appendChild(card);
@@ -1000,130 +1110,7 @@ function loadChannels() {
 }
 
 /* -------------------------
-   YouTube Modal
-------------------------- */
-
-function createYouTubeModalIfNeeded() {
-  let modal = document.getElementById("ytModal");
-  if (modal) return modal;
-
-  modal = document.createElement("div");
-  modal.id = "ytModal";
-  modal.style.cssText = `
-    position: fixed;
-    inset: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.85);
-    z-index: 99999;
-    padding: 20px;
-  `;
-
-  modal.innerHTML = `
-    <div id="ytBox" style="
-      position: relative;
-      max-width: 1100px;
-      width: 100%;
-      background: transparent;
-      border-radius: 10px;
-      overflow: visible;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    ">
-<button id="ytClose" aria-label="close" style="
-  margin-bottom: 4px;
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-">×</button>
-
-      <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 10px; overflow: hidden;">
-        <iframe id="ytFrame" src="" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
-          style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 10px;"></iframe>
-      </div>
-    </div>
-  `;
-
-  document.body.appendChild(modal);
-
-  const closeBtn = modal.querySelector("#ytClose");
-
-  closeBtn.addEventListener("mouseenter", () => {
-    closeBtn.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
-    closeBtn.style.boxShadow = "0 8px 40px rgba(255, 255, 255, 0.4)";
-  });
-  closeBtn.addEventListener("mouseleave", () => {
-    closeBtn.style.backgroundColor = "rgba(255, 255, 255, 0.15)";
-    closeBtn.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.1)";
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeYouTube();
-  });
-
-  closeBtn.addEventListener("click", closeYouTube);
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeYouTube();
-  });
-
-  return modal;
-}
-
-function openYouTube(url, channel) {
-  const id = extractYouTubeId(url);
-  if (!id) {
-    console.error("Unable to extract YouTube ID from:", url);
-    alert(
-      "This YouTube URL is not valid or the video ID couldn't be detected."
-    );
-    return;
-  }
-
-  const embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
-
-  const modal = createYouTubeModalIfNeeded();
-  const iframe = modal.querySelector("#ytFrame");
-  if (!iframe) {
-    console.error("ytFrame not found inside modal.");
-    return;
-  }
-
-  iframe.src = embedUrl;
-  modal.style.display = "flex";
-
-  console.log(
-    `Playing YouTube: ${
-      channel && channel.name ? channel.name + " - " : ""
-    }${id}`
-  );
-}
-
-function closeYouTube() {
-  const modal = document.getElementById("ytModal");
-  if (!modal) return;
-  const iframe = modal.querySelector("#ytFrame");
-  if (iframe) iframe.src = "";
-  modal.style.display = "none";
-}
-
-/* -------------------------
-   Init
+   Initialization on DOM ready
 ------------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {

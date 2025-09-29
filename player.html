@@ -2,14 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Live TV | UltraWebs</title>
+    <meta charset="UTF-8">
+    <title>Live TV Player | UltraWebs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+    <script src="https://cdn.jwplayer.com/libraries/KB5zFt7A.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <style>
         /* ===== GLOBAL RESET & FONT ===== */
         html,
@@ -33,7 +31,43 @@
             z-index: 0;
         }
 
-        /* GLASSMORPHISM CONTAINER */
+        /* BACK BUTTON */
+        .back-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            width: 3.5rem;
+            /* equal width and height for round shape */
+            height: 3.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            /* makes it perfectly round */
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #00e5ff;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* VIDEO WRAPPER */
+        .video-wrapper {
+            width: 95%;
+            max-width: 1000px;
+            margin: 6rem auto 2rem;
+            padding: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
         .glass {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 1rem;
@@ -42,25 +76,7 @@
             border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
             position: relative;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        /* VIDEO SECTION */
-        .video-wrapper {
-            width: 100%;
-            max-width: 1000px;
-            margin: 3rem auto 2rem;
-            padding: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .ambient-glow {
-            display: flex;
-            flex-direction: column;
-            border-radius: 1rem;
-            transition: box-shadow 0.3s;
+            overflow: hidden;
         }
 
         /* CHANNEL INFO */
@@ -70,7 +86,6 @@
             gap: 0.75rem;
             padding: 0.75rem 1rem;
             border-radius: 1rem 1rem 0 0;
-            transition: all 0.3s ease;
         }
 
         .channel-info img {
@@ -87,7 +102,7 @@
             color: #00e5ff;
         }
 
-        /* PLAYER WRAPPER */
+        /* PLAYER */
         #player {
             width: 100%;
             aspect-ratio: 16/9;
@@ -99,14 +114,12 @@
         #play-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(0, 0, 0, 0.65);
             cursor: pointer;
-            z-index: 10;
-            border-radius: 1rem;
-            transition: background 0.3s ease;
+            z-index: 5;
         }
 
         #play-button {
@@ -131,19 +144,44 @@
             background: rgba(0, 229, 255, 0.15);
         }
 
-        /* HEADING */
-        h2 {
-            text-align: center;
-            color: #ccc;
-            font-weight: 500;
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .channel-info span {
+                font-size: 1rem;
+            }
+
+            .channel-info img {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            #play-button {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+            }
         }
 
-        /* ===== JWPLAYER CUSTOM THEME ===== */
+        @media (max-width: 480px) {
+            .channel-info span {
+                font-size: 0.9rem;
+            }
+
+            .channel-info img {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            #play-button {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+        }
 
         /* Force JW Player global font */
         .jwplayer,
         .jwplayer * {
             font-family: 'Space Grotesk', sans-serif !important;
+            font-size: 13px !important;
             /* compact */
             line-height: 1.4 !important;
             letter-spacing: 0.2px;
@@ -216,155 +254,88 @@
             border-radius: 6px !important;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* Mobile adjustment */
         @media (max-width: 768px) {
-            .channel-info span {
-                font-size: 1rem;
+            .jwplayer .jw-text-track-display {
+                font-size: 14px !important;
             }
+        }
 
-            .channel-info img {
-                width: 2rem;
-                height: 2rem;
-            }
-
-            #play-button {
-                font-size: 0.9rem;
-                padding: 0.6rem 1.2rem;
+        @media (max-width: 480px) {
+            .jwplayer .jw-text-track-display {
+                font-size: 12px !important;
             }
         }
     </style>
 </head>
 
 <body>
-    <div id="header-placeholder"></div>
+    <button class="back-btn" onclick="history.back()">
+        <span class="material-icons">arrow_back</span>
+    </button>
 
     <div class="video-wrapper">
-        <div class="ambient-glow glass">
-            <div class="channel-info" id="channel-info" style="display:none;">
+        <div class="glass">
+            <div class="channel-info" id="channel-info">
                 <img id="channel-logo" src="" alt="Logo" />
-                <span id="channel-name"></span>
+                <span id="channel-name">Live TV</span>
             </div>
             <div id="player"></div>
-        </div>
-
-        <div id="play-overlay">
-            <button id="play-button">
-                <span class="material-icons">volume_up</span> Tap to Play with Sound
-            </button>
+            <div id="play-overlay">
+                <button id="play-button">
+                    <span class="material-icons">volume_up</span> Tap to Play with Sound
+                </button>
+            </div>
         </div>
     </div>
 
-    <div id="footer-container"></div>
-
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const src = params.get("play");
-        const drm = params.get("drm") || "clearkey";
-        const kidKey = params.get("keyid");
-        const channelName = params.get("channel");
-        const logoUrl = params.get("logo");
-        const captions = params.get("captions"); // extra param for subtitle file
+        const urlParams = new URLSearchParams(window.location.search);
+        const play = urlParams.get("play");
+        const channel = urlParams.get("channel") || "Live TV";
+        const logo = urlParams.get("logo");
+        const drm = urlParams.get("drm");
+        const keyid = urlParams.get("keyid");
 
-        function setMeta(tagName, attrName, content) {
-            let tag = document.querySelector(`${tagName}[${attrName}]`);
-            if (!tag) {
-                tag = document.createElement(tagName);
-                tag.setAttribute(attrName, attrName.includes("property") ? attrName.split('"')[1] : attrName.split('"')[1]);
-                document.head.appendChild(tag);
+        document.title = `${channel} | UltraWebs`;
+        document.getElementById("channel-name").textContent = channel;
+        if (logo) document.getElementById("channel-logo").src = logo;
+
+        const config = {
+            file: play,
+            image: logo,
+            title: channel,
+            width: "100%",
+            height: "100%",
+            autostart: true,
+            mute: true,
+            playbackRateControls: true,
+            controls: true,
+            androidhls: true,
+            cast: { appId: "CC1AD845" },
+            airplay: true,
+            pip: true,
+            captions: {
+                backgroundOpacity: 0,        // Transparent background
+                edgeStyle: "raised",         // Raised edge
+                fontFamily: "Space Grotesk, sans-serif",
+                color: "#00e5ff"             // optional, text color
             }
-            tag.setAttribute("content", content);
+        };
+
+        if (drm === "clearkey" && keyid) {
+            const [kid, key] = keyid.split(":");
+            config.drm = { clearkey: { keyId: kid.trim(), key: key.trim() } };
         }
 
-        function setFavicon(url) {
-            if (!url) return;
-            let link = document.querySelector("link[rel~='icon']");
-            if (!link) { link = document.createElement('link'); link.rel = 'icon'; document.head.appendChild(link); }
-            link.href = url;
-        }
+        const player = jwplayer("player").setup(config);
 
-        if (channelName && logoUrl) {
-            const decodedName = decodeURIComponent(channelName);
-            const decodedLogo = decodeURIComponent(logoUrl);
-            document.getElementById("channel-info").style.display = "flex";
-            document.getElementById("channel-name").textContent = decodedName;
-            document.getElementById("channel-logo").src = decodedLogo;
-            document.title = decodedName + " | StreamX";
-            setFavicon(decodedLogo);
-        }
-
-        function getSourceType(url) {
-            if (!url) return null;
-            if (url.includes(".m3u8")) return "hls";
-            if (url.includes(".mpd")) return "dash";
-            return "mp4";
-        }
-
-        if (!src) {
-            document.querySelector(".video-wrapper").innerHTML = "<h2>No video source provided.</h2>";
-        } else {
-            const type = getSourceType(src);
-            const playerConfig = {
-                file: src,
-                type,
-                autostart: true,
-                mute: true,
-                controls: true,
-                width: "100%",
-                aspectratio: "16:9",
-                playbackRateControls: true,
-                cast: {},              // ✅ Chromecast enabled
-                airplay: true,         // ✅ Apple AirPlay enabled
-            };
-
-            // DASH DRM handling
-            if (type === "dash" && kidKey && kidKey.includes(":")) {
-                const [keyId, key] = kidKey.split(":");
-                playerConfig.drm = { clearkey: { keyId, key } };
-            }
-
-            // ✅ Captions handling
-            if (captions) {
-                playerConfig.tracks = [
-                    {
-                        file: captions,
-                        kind: "captions",
-                        label: "English",
-                        default: true
-                    }
-                ];
-            }
-
-            const player = jwplayer("player").setup(playerConfig);
-
-            // Force captions button visible
-            player.on("ready", () => {
-                player.setCurrentCaptions(1); // enable first caption track if available
-            });
-        }
-
-        fetch("header.html")
-            .then((res) => res.text())
-            .then((data) => {
-                document.getElementById("header-placeholder").innerHTML = data;
-                const menuToggle = document.querySelector(".menu-toggle");
-                const nav = document.querySelector(".nav");
-                if (menuToggle && nav) {
-                    menuToggle.addEventListener("click", () => nav.classList.toggle("show"));
-                    document.querySelectorAll(".nav a").forEach((link) => {
-                        link.addEventListener("click", () => nav.classList.remove("show"));
-                    });
-                }
-            });
-
-        fetch("footer.html").then(res => res.text()).then(data => {
-            document.getElementById("footer-container").innerHTML = data;
-        });
-
-        document.getElementById("play-overlay").addEventListener("click", () => {
-            const player = jwplayer("player");
+        // Play overlay logic
+        const overlay = document.getElementById("play-overlay");
+        overlay.addEventListener("click", () => {
             player.play(true);
             player.setVolume(40);
-            document.getElementById("play-overlay").style.display = "none";
+            overlay.style.display = "none";
         });
     </script>
 
