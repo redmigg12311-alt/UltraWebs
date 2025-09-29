@@ -421,7 +421,7 @@ const channels = [
     name: "Shaun The Sheep",
     category: "Kids",
     image: "https://i.ibb.co/zV5G5RNC/Shaun-The-Sheep.png",
-    stream: "https://youtu.be/n5GgEBeK3jA",
+    stream: "https://youtu.be/dLz8GUOveio",
   },
   {
     name: "Battle Bots",
