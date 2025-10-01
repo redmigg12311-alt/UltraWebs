@@ -675,7 +675,7 @@ const channels = [
     name: "One Puch Man ",
     image:
       "https://api.duniagames.co.id/api/product/upload/image/17792057321731573408.png",
-    category: "Kids",
+    category: "Anime",
     stream: "https://youtu.be/DQTqAZdEPwU",
   },
   {
