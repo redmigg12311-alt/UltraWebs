@@ -103,50 +103,44 @@ To deploy your own version:
 UltraWebs is fully responsive and adapts to different screen sizes, making it usable on smartphones and tablets.  
 Here are some mobile previews (scroll →):
 
-<div style="display: flex; overflow-x: auto; gap: 10px; padding: 10px;">
-
-  <img src="assets/screenshot/UL/homem.png" alt="Mobile Home Page" width="250"/>
-  <img src="assets/screenshot/UL/playerm.png" alt="Mobile Player Page" width="250"/>
-  <img src="assets/screenshot/UL/searchm.png" alt="Mobile Search Page" width="250"/>
-  <img src="assets/screenshot/UL/searchoutputm.png" alt="Mobile Search Outout Page" width="250"/>
+<p align="left" style="overflow-x: auto; white-space: nowrap;">
+  <img src="assets/screenshot/UL/homem.png" alt="Mobile Home Page" width="250"/> &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/screenshot/UL/playerm.png" alt="Mobile Player Page" width="250"/> &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/screenshot/UL/searchm.png" alt="Mobile Search Page" width="250"/> &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/screenshot/UL/searchoutputm.png" alt="Mobile Search Output Page" width="250"/> &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="assets/screenshot/UL/contactusm.png" alt="Mobile Contact-US Page" width="250"/>
-
-</div>
+</p>
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots  
 
-Here are previews of the main pages:
+Here are previews of the main pages:  
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+<p align="center">
+  <img src="assets/screenshot/UL/Home.png" alt="Home Page Screenshot" width="280" style="border-radius:10px;"/>  
+  <br><b>🏠 Home Page</b>
+</p>
 
-  <div style="text-align: center;">
-    <img src="assets/screenshot/UL/Home.png" alt="Home Page Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
-    <p><b>🏠 Home Page</b></p>
-  </div>
+<p align="center">
+  <img src="assets/screenshot/UL/player.png" alt="Player Page Screenshot" width="280" style="border-radius:10px;"/>  
+  <br><b>🎵 Player Page</b>
+</p>
 
-  <div style="text-align: center;">
-    <img src="assets/screenshot/UL/player.png" alt="Player Page Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
-    <p><b>🎵 Player Page</b></p>
-  </div>
+<p align="center">
+  <img src="assets/screenshot/UL/search.png" alt="Search Page Screenshot" width="280" style="border-radius:10px;"/>  
+  <br><b>🔍 Search Page</b>
+</p>
 
-  <div style="text-align: center;">
-    <img src="assets/screenshot/UL/search.png" alt="Search Page Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
-    <p><b>🔍 Search Page</b></p>
-  </div>
+<p align="center">
+  <img src="assets/screenshot/UL/searchouput.png" alt="Search Output Screenshot" width="280" style="border-radius:10px;"/>  
+  <br><b>📑 Search Output</b>
+</p>
 
-  <div style="text-align: center;">
-    <img src="assets/screenshot/UL/searchouput.png" alt="Search Output Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
-    <p><b>📑 Search Output</b></p>
-  </div>
-
-  <div style="text-align: center;">
-    <img src="assets/screenshot/UL/contactus.png" alt="Contact-US Page Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
-    <p><b>📬 Contact-US Page</b></p>
-  </div>
-
-</div>
+<p align="center">
+  <img src="assets/screenshot/UL/contactus.png" alt="Contact-US Page Screenshot" width="280" style="border-radius:10px;"/>  
+  <br><b>📬 Contact-US Page</b>
+</p>
 
 ---
 
