@@ -1,9 +1,8 @@
-
 # UltraWebs
 
 <p align="center"> <img src="assets\screenshot\UL\logo.png" alt="UltraWebs Logo" width="120"/> </p> <p align="center"> UltraWebs is a lightweight multipage static web project built with <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>. Designed for flexibility and reusability, it’s ideal for modern content-focused websites. <br><br> 🌐 <a href="https://ultra-webs.vercel.app" target="_blank">Live Demo</a> </p>
 
-***
+---
 
 ## 📑 Table of Contents
 
@@ -19,15 +18,15 @@
 - [Contributors](#contributors)
 - [License](#license)
 
-***
+---
 
 ## 🚀 Introduction
 
-UltraWebs is designed as a modular static site with reusable components such as headers, footers, and favicons.  
+UltraWebs is designed as a modular static site with reusable components such as headers, footers, and favicons.
 
 It includes separate pages for navigation, searching, and media playback, making it a good starting point for customizable personal or content-focused websites.
 
-***
+---
 
 ## 📂 Project Structure
 
@@ -44,11 +43,12 @@ UltraWebs/
 ├── search.html    # Search interface
 ```
 
-***
+---
 
 ## ⚙️ Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/redmigg12311-alt/UltraWebs.git
    cd UltraWebs
@@ -57,7 +57,7 @@ UltraWebs/
 2. **Open in your browser**  
    Simply open `https://ultra-webs.vercel.app` in your preferred web browser.
 
-***
+---
 
 ## 🖥️ Usage
 
@@ -66,7 +66,7 @@ UltraWebs/
 - Add or update functionality in the `js/` folder.
 - Use `header` and `footer` as modular components to maintain consistency across pages.
 
-***
+---
 
 ## ✨ Features
 
@@ -76,7 +76,7 @@ UltraWebs/
 - 🎵 Player page for media integration
 - 🌐 Deployed easily on Vercel
 
-***
+---
 
 ## ⚙️ Configuration
 
@@ -84,7 +84,7 @@ UltraWebs/
 - Modify navigation inside `header` for new pages.
 - Place additional assets (e.g., images, fonts) inside the `other/` directory.
 
-***
+---
 
 ## 🌍 Deployment
 
@@ -96,23 +96,59 @@ To deploy your own version:
 3. Configure build settings (for static sites, no build step is needed).
 4. Deploy — your site will be live in seconds!
 
-***
+---
+
+## 📱 Mobile
+
+UltraWebs is fully responsive and adapts to different screen sizes, making it usable on smartphones and tablets.  
+Here are some mobile previews (scroll →):
+
+<div style="display: flex; overflow-x: auto; gap: 10px; padding: 10px;">
+
+  <img src="assets/screenshot/UL/homem.png" alt="Mobile Home Page" width="250"/>
+  <img src="assets/screenshot/UL/playerm.png" alt="Mobile Player Page" width="250"/>
+  <img src="assets/screenshot/UL/searchm.png" alt="Mobile Search Page" width="250"/>
+  <img src="assets/screenshot/UL/searchoutputm.png" alt="Mobile Search Outout Page" width="250"/>
+  <img src="assets/screenshot/UL/contactusm.png" alt="Mobile Contact-US Page" width="250"/>
+
+</div>
+
+---
 
 ## 📸 Screenshots
 
-Here are previews of the pages:
+Here are previews of the main pages:
 
-### Home Page
-![Home Page Screenshot](assets/screenshot/UL/Home.png)
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
 
-### Player Page
-![Player Page Screenshot](assets/screenshot/UL/player.png)
+  <div style="text-align: center;">
+    <img src="assets/screenshot/UL/Home.png" alt="Home Page Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
+    <p><b>🏠 Home Page</b></p>
+  </div>
 
-### Search Page
-![Search Page Screenshot](assets/screenshot/UL/search.png)
-![Search Output Screenshot](assets/screenshot/UL/searchouput.png)
+  <div style="text-align: center;">
+    <img src="assets/screenshot/UL/player.png" alt="Player Page Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
+    <p><b>🎵 Player Page</b></p>
+  </div>
 
-***
+  <div style="text-align: center;">
+    <img src="assets/screenshot/UL/search.png" alt="Search Page Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
+    <p><b>🔍 Search Page</b></p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="assets/screenshot/UL/searchouput.png" alt="Search Output Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
+    <p><b>📑 Search Output</b></p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="assets/screenshot/UL/contactus.png" alt="Contact-US Page Screenshot" width="300" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.15);"/>
+    <p><b>📬 Contact-US Page</b></p>
+  </div>
+
+</div>
+
+---
 
 ## 🛠️ Troubleshooting
 
@@ -122,9 +158,8 @@ Here are previews of the pages:
 - Broken links between pages?  
   Double-check file names and ensure case sensitivity matches (important for Linux servers).
 
-***
+---
 
 ## 👥 Contributors
 
 - **[@redmigg12311-alt](https://github.com/redmigg12311-alt)** – Creator & Maintainer
-
