@@ -356,21 +356,28 @@ const channels = [
     image:
       "https://upload.wikimedia.org/wikipedia/commons/e/e0/Nick_Jr._logo_2023.svg",
     category: "Kids",
-    stream: "https://fl7.moveonjoy.com/NICK_JR/index.m3u8",
+    stream: "https://fl25.moveonjoy.com/NICK_JR/index.m3u8",
+  },
+  {
+    name: "Teen Nick",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/TeenNick_logo_2023_%28outline%29.svg/1200px-TeenNick_logo_2023_%28outline%29.svg.png",
+    category: "Kids",
+    stream: "https://fl25.moveonjoy.com/Teen_Nick/index.m3u8",
   },
   {
     name: "Nicklodeon",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Nickelodeon_2023_logo_%28outline%29.svg/1920px-Nickelodeon_2023_logo_%28outline%29.svg.png",
     category: "Kids",
-    stream: "https://fl7.moveonjoy.com/NICKELODEON/index.m3u8",
+    stream: "https://fl25.moveonjoy.com/NICKELODEON/index.m3u8",
   },
   {
     name: "Nick Toons",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/9/97/Nicktoons_logo_%282023%29.svg",
     category: "Kids",
-    stream: "https://fl7.moveonjoy.com/NICKTOONS/index.m3u8",
+    stream: "https://fl25.moveonjoy.com/NICKTOONS/index.m3u8",
   },
   {
     name: "Disney Channel",
@@ -783,6 +790,79 @@ const channels = [
     image: "https://theuniversalhr.com/images/english-learning-english.png",
     category: "Education",
     stream: "https://youtu.be/k_2FA6vyOgM",
+  },
+  {
+    name: "RetroCrush",
+    image: "https://explore.retrocrush.tv/wp-content/uploads/retrocrush_logo2.png",
+    category: "Anime",
+    stream: "https://cineverse.g-mana.live/media/ac7cff3c-5bc3-4745-ac4d-56aadb586d00/profile/1/profileManifest.m3u8",
+  },
+  {
+    name: "Camp Spoopy",
+    image: "https://i.ibb.co/GB8p1cn/8-PUb-PVU-d.webp",
+    category: "Kids",
+    stream: "https://stream.ads.ottera.tv/playlist.m3u8?network_id=269",
+  },
+  {
+    name: "Hobby Maker",
+    image: "https://files.ekmcdn.com/honeypotcrafts/images/1st-october-festive-sale-show-1310-c.png",
+    category: "LifeStyle",
+    stream: "https://lo3.gemporia.com/abrhobbymakerukgfx/smil:livestreamFullHD.smil/playlist.m3u8",
+  },
+  {
+    name: "FIFA +",
+    image: "https://i.ibb.co/6cVtCjjL/l5iax42.png",
+    category: "Sports",
+    stream: "https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8",
+  },
+  {
+    name: "GREAT! Movies",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Great%21_Movies_logo_2021.svg/2560px-Great%21_Movies_logo_2021.svg.png",
+    category: "Movie",
+    stream: "https://amg01753-narrativeuk-amg01753c3-lg-gb-1833.playouts.now.amagi.tv/playlist/amg01753-narrativeuk-greatmovies-lggb/playlist.m3u8",
+  },
+  {
+    name: "GREAT! Romance",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/c/c3/Great%21_Romance_logo_2023.svg",
+    category: "Movie",
+    stream: "https://amg01753-narrativeuk-amg01753c2-lg-gb-1832.playouts.now.amagi.tv/playlist/amg01753-narrativeuk-greatchristmas-lggb/playlist.m3u8",
+  },
+  {
+    name: "Discover Film",
+    image:
+      "https://i.ibb.co/GvvcdNZ7/o-Mnps-Q5-d.webp",
+    category: "Movie",
+    stream: "https://discoverfilm-discoverfilm-1-nl.samsung.wurl.tv/playlist.m3u8",
+  },
+  {
+    name: "Tiny POP",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Tiny_Pop_logo_2018.svg/1920px-Tiny_Pop_logo_2018.svg.png",
+    category: "Kids",
+    stream: "https://amg01753-narrativeuk-amg01753c1-lg-gb-1830.playouts.now.amagi.tv/playlist/amg01753-narrativeuk-tinypop-lggb/playlist.m3u8",
+  },
+  {
+    name: "POP",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/3/36/Pop_UK_TV_Logo_%282015%29.svg/2560px-Pop_UK_TV_Logo_%282015%29.svg.png",
+    category: "Anime",
+    stream: "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01753-narrativeentert-popkids-lggb/playlist.m3u8",
+  },
+  {
+    name: "iFood.TV",
+    image:
+      "https://i.postimg.cc/GpPt7q5T/ifoodtv.png",
+    category: "Food",
+    stream: "https://ifood-vizio.amagi.tv/playlist.m3u8",
+  },
+  {
+    name: "Sky News Weather",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/a/ab/SkyNewsWeatherChannelAU.svg",
+    category: "Weather",
+    stream: "https://distro001-gb-hls1-prd.delivery.skycdp.com/easel_cdn/ngrp:weather_loop.stream_all/playlist.m3u8",
   },
   {
     name: "Cloudflare TV",
