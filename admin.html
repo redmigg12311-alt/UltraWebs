@@ -14,309 +14,375 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-  <style>
-    :root {
-      --primary: #00e5ff;
-      --accent-error: #ef5350;
-      --text-light: #e0e0e0;
-      --text-muted: #b0bec5;
-      --radius: 16px;
-      --transition: 0.3s;
-    }
+<style>
+  /* =========================
+     Root Variables
+  ========================== */
+  :root {
+    --primary: #00e5ff;
+    --primary-dark: #00b8cc;
+    --accent-error: #ef5350;
+    --bg-dark: #121212;
+    --bg-card: rgba(25, 25, 25, 0.85);
+    --text-light: #e0e0e0;
+    --text-muted: #b0bec5;
+    --radius: 16px;
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.37);
+    --transition: 0.3s ease;
+    --font: "Space Grotesk", sans-serif;
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  /* =========================
+     Global Reset & Body
+  ========================== */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    body {
-      font-family: "Space Grotesk", sans-serif;
-      background: url("https://wallpapercave.com/wp/wp15392660.jpg") no-repeat center center fixed;
-      background-size: cover;
-      min-height: 100vh;
-      color: var(--text-light);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-    }
+  body {
+    font-family: var(--font);
+    background: linear-gradient(to right, #0d0d0d, #1a1a1a), url('https://wallpapercave.com/wp/wp15392660.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    position: relative;
+  }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      z-index: 0;
-    }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    z-index: 0;
+  }
 
-    header {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      color: var(--primary);
-      z-index: 1;
-    }
+  /* =========================
+     Header
+  ========================== */
+  header {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-shadow: 0 0 12px var(--primary);
+    margin-bottom: 2.5rem;
+    z-index: 10;
+    user-select: none;
+    text-align: center;
+    letter-spacing: 1.2px;
+  }
 
-    .container {
-      width: 100%;
-      max-width: 950px;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      z-index: 1;
-    }
+  /* =========================
+     Container & Cards
+  ========================== */
+  .container {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 10;
+  }
 
-    .card {
-      backdrop-filter: blur(15px);
-      background-color: rgba(20, 20, 20, 0.5);
-      border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-      transition: box-shadow var(--transition) ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      width: 100%;
-    }
+  .card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(14px);
+    transition: all var(--transition);
+    width: 100%;
+  }
 
-    .card:hover {
-      box-shadow: 0 12px 40px rgba(0, 191, 165, 0.6);
-    }
+  .card:hover {
+    box-shadow: 0 12px 40px rgba(0, 229, 255, 0.6);
+    transform: translateY(-2px);
+  }
 
-    h2 {
-      color: var(--primary);
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
-    }
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.8rem;
+    color: var(--primary);
+    letter-spacing: 0.04em;
+  }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 1rem;
-    }
+  /* =========================
+     Form Styling
+  ========================== */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-    label {
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
 
-    input[type="text"],
-    select {
-      padding: 12px 16px;
-      font-size: 1rem;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background-color: rgba(0, 0, 0, 0.4);
-      color: var(--text-light);
-      outline: none;
-      transition: 0.3s;
-      backdrop-filter: blur(5px);
-    }
+  label {
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
 
-    input[type="text"]::placeholder {
-      color: #aaa;
-    }
+  input[type="text"], select {
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-light);
+    outline: none;
+    transition: 0.3s;
+    backdrop-filter: blur(6px);
+  }
 
-    input[type="text"]:focus,
-    select:focus {
-      border-color: var(--primary);
-      background-color: rgba(0, 0, 0, 0.6);
-    }
+  input::placeholder {
+    color: #999;
+    font-style: italic;
+  }
 
-    button {
-      background-color: var(--primary);
-      border: none;
-      border-radius: var(--radius);
-      padding: 14px 20px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      color: #121212;
-      box-shadow: 0 4px 15px rgba(0, 191, 165, 0.5);
-      transition: 0.3s;
-      margin-top: 1rem;
-    }
+  input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    background-color: rgba(0,0,0,0.7);
+  }
 
-    button:hover {
-      background-color: #26c6da;
-      box-shadow: 0 6px 20px rgba(0, 191, 165, 0.7);
-    }
+  button {
+    padding: 14px 22px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #121212;
+    border: none;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 6px 18px rgba(0, 191, 165, 0.7);
+    transition: all var(--transition);
+  }
 
-    .preview {
-      text-align: center;
-      padding: 1rem;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background-color: rgba(0, 0, 0, 0.3);
-      box-shadow: 0 4px 15px rgba(0, 191, 165, 0.3);
-      backdrop-filter: blur(10px);
-      margin-top: 1rem;
-    }
+  button:hover {
+    background: linear-gradient(135deg, #26c6da, #009fae);
+    box-shadow: 0 8px 24px rgba(0, 191, 165, 0.8);
+    transform: translateY(-1px);
+  }
 
-    .preview img {
-      max-width: 120px;
-      border-radius: 6px;
-      margin-bottom: 8px;
-    }
+  /* =========================
+     Preview
+  ========================== */
+  .preview {
+    margin-top: 1.5rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1.2rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+  }
 
-    .timestamp {
-      margin-top: 6px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
+  .preview img {
+    max-width: 120px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
 
-    .popup {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background-color: var(--primary);
-      color: #121212;
-      padding: 12px 20px;
-      border-radius: var(--radius);
-      box-shadow: 0 0 25px rgba(0, 191, 165, 0.7);
-      font-weight: 700;
-      display: none;
-      z-index: 1000;
-    }
+  .preview img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px var(--primary);
+  }
 
-    .popup.error {
-      background-color: var(--accent-error);
-      color: #fff;
-      box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
-    }
+  .timestamp {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
 
-    /* New Saved Data Styles */
-    .saved-channels {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+  /* =========================
+     Popup
+  ========================== */
+  .popup {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 14px 24px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 1rem;
+    color: #121212;
+    background: var(--primary);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.7);
+    display: none;
+    z-index: 1000;
+  }
 
-    .channel-card {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 1rem;
-      align-items: center;
-      background-color: rgba(20, 20, 20, 0.6);
-      padding: 1rem;
-      border-radius: var(--radius);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0, 191, 165, 0.3);
-      transition: 0.3s;
-      word-break: break-word;
-    }
+  .popup.error {
+    background: var(--accent-error);
+    color: #fff;
+    box-shadow: 0 0 24px rgba(255, 0, 0, 0.7);
+  }
 
-    .channel-card img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      border-radius: 8px;
-    }
+  /* =========================
+     Saved Channels
+  ========================== */
+  .saved-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-    .channel-card:hover {
-      box-shadow: 0 6px 20px rgba(0, 191, 165, 0.5);
-    }
+  .channel-card {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition);
+  }
 
-    .channel-info h3 {
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-      font-size: 1.2rem;
-    }
+  .channel-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 191, 165, 0.4);
+    transform: translateY(-2px);
+  }
 
-    .channel-info p {
-      margin-bottom: 0.3rem;
-      font-size: 0.95rem;
-    }
+  .channel-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
 
-    .channel-info a {
-      color: var(--primary);
-      text-decoration: none;
-      word-break: break-word;
-    }
+  .channel-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px var(--primary);
+  }
 
-    .channel-info a:hover {
-      text-decoration: underline;
-    }
+  .channel-info h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
 
-    @media (max-width: 768px) {
-      .channel-card {
-        grid-template-columns: 80px 1fr;
-      }
+  .channel-info p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    word-break: break-word;
+  }
 
-      .channel-card img {
-        width: 80px;
-        height: 80px;
-      }
-    }
+  .channel-info a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
 
-    @media (max-width: 480px) {
-      .channel-card {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-      }
+  .channel-info a:hover {
+    text-decoration: underline;
+  }
 
-      .channel-card img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 0.5rem;
-      }
-    }
-  </style>
+  .edit-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #26c6da, #009fae);
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .edit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 191, 165, 0.5);
+  }
+
+  /* =========================
+     Responsive
+  ========================== */
+  @media(max-width:768px) {
+    .channel-card { grid-template-columns: 90px 1fr auto; }
+    .channel-card img { width: 90px; height: 90px; }
+  }
+
+  @media(max-width:480px) {
+    .channel-card { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+    .channel-card img { width: 100%; height: auto; margin-bottom: 0.5rem; }
+  }
+</style>
+
 </head>
 
 <body>
   <header>UltraWebs Admin Panel</header>
 
   <main class="container">
-    <div class="card">
-      <h2>Update F1 Link</h2>
+    <section class="card" aria-labelledby="update-title">
+      <h2 id="update-title">Update F1 Link</h2>
 
-      <div class="form-group">
-        <label for="title-prefix">Event Name</label>
-        <input type="text" id="title-prefix" placeholder="Indian GP 2025 F1 Live" />
-      </div>
+      <form id="channelForm" autocomplete="off">
+        <div class="form-group">
+          <label for="title-prefix">Event Name</label>
+          <input type="text" id="title-prefix" name="title-prefix" placeholder="Indian GP 2025 F1 Live" required />
+        </div>
 
-      <div class="form-group">
-        <label for="title-suffix">Session</label>
-        <select id="title-suffix">
-          <option value="Practice 1">Practice 1</option>
-          <option value="Practice 2">Practice 2</option>
-          <option value="Practice 3">Practice 3</option>
-          <option value="Sprint Qualifying">Sprint Qualifying</option>
-          <option value="Sprint">Sprint</option>
-          <option value="Qualifying">Qualifying</option>
-          <option value="Race">Race</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label for="title-suffix">Session</label>
+          <select id="title-suffix" name="title-suffix" required>
+            <option value="Practice 1">Practice 1</option>
+            <option value="Practice 2">Practice 2</option>
+            <option value="Practice 3">Practice 3</option>
+            <option value="Sprint Qualifying">Sprint Qualifying</option>
+            <option value="Sprint">Sprint</option>
+            <option value="Qualifying">Qualifying</option>
+            <option value="Race">Race</option>
+          </select>
+        </div>
 
-      <div class="form-group">
-        <label for="logo">Logo URL</label>
-        <input type="text" id="logo" placeholder="Enter logo URL" />
-      </div>
+        <div class="form-group">
+          <label for="logo">Logo URL</label>
+          <input type="text" id="logo" name="logo" placeholder="Enter logo URL" required />
+        </div>
 
-      <div class="form-group">
-        <label for="url">Stream URL (m3u8)</label>
-        <input type="text" id="url" placeholder="Enter stream URL (m3u8)" />
-      </div>
+        <div class="form-group">
+          <label for="url">Stream URL (m3u8)</label>
+          <input type="text" id="url" name="url" placeholder="Enter stream URL (m3u8)" required />
+        </div>
 
-      <button id="saveBtn">Save Changes</button>
+        <button type="submit" id="saveBtn">Save Changes</button>
+      </form>
 
-      <div class="preview">
+      <div class="preview" aria-live="polite" aria-atomic="true">
         <img id="logo-preview" src="" alt="Logo Preview" />
         <p id="title-preview">Preview Title</p>
         <p class="timestamp" id="timestamp">Last Updated: --</p>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>Saved Database Preview</h2>
-      <div class="saved-channels" id="saved-channels"></div>
-    </div>
+    <section class="card" aria-labelledby="database-title">
+      <h2 id="database-title">Saved Database Preview</h2>
+      <div class="saved-channels" id="saved-channels" aria-live="polite"></div>
+    </section>
   </main>
 
-  <div class="popup" id="popup-msg"></div>
+  <div class="popup" id="popup-msg" role="alert" aria-live="assertive"></div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
@@ -373,17 +439,33 @@
         logoPreview.src = data.logo || "";
         timestampEl.textContent = `Last Updated: ${formattedDate}`;
 
-        // Saved data card
+        // Saved data card with Edit button
         savedChannels.innerHTML = `
-      <div class="channel-card">
-        <img src="${data.logo}" alt="Logo" />
-        <div class="channel-info">
-          <h3>${combinedTitle}</h3>
-          <p><strong>Stream URL:</strong> <a href="${data.url}" target="_blank">${data.url}</a></p>
-          <p class="timestamp">Last Updated: ${formattedDate}</p>
-        </div>
-      </div>
-    `;
+          <div class="channel-card">
+            <img src="${data.logo}" alt="Logo" />
+            <div class="channel-info">
+              <h3>${combinedTitle}</h3>
+              <p><strong>Stream URL:</strong> <a href="${data.url}" target="_blank" rel="noopener">${data.url}</a></p>
+              <p class="timestamp">Last Updated: ${formattedDate}</p>
+            </div>
+            <button class="edit-btn" aria-label="Edit Channel">Edit</button>
+          </div>
+        `;
+
+        document.querySelector(".edit-btn").addEventListener("click", () => {
+          // Split title into prefix & suffix
+          const suffixOption = Array.from(suffixSelect.options).find(opt => combinedTitle.endsWith(opt.value));
+          const suffixVal = suffixOption ? suffixOption.value : suffixSelect.value;
+          const prefixVal = combinedTitle.replace(` ${suffixVal}`, "");
+
+          prefixInput.value = prefixVal;
+          suffixSelect.value = suffixVal;
+          logoInput.value = data.logo;
+          urlInput.value = data.url;
+
+          updateTitlePreview();
+          logoPreview.src = data.logo;
+        });
       }
     }
 
@@ -404,7 +486,8 @@
       setTimeout(() => (popupMsg.style.display = "none"), 3000);
     }
 
-    saveBtn.addEventListener("click", async () => {
+    saveBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
       if (!prefixInput.value.trim() || !logoInput.value.trim() || !urlInput.value.trim()) {
         showPopup("Please fill all fields!", true);
         return;
