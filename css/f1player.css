@@ -82,7 +82,7 @@ body::before {
   padding: 1rem;
   position: relative;
   z-index: 2;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
 }
 
 .glass {
@@ -281,5 +281,75 @@ body::before {
 @media (max-width: 480px) {
   .jwplayer .jw-text-track-display {
     font-size: 12px !important;
+  }
+}
+
+/* Disclaimer Section */
+.disclaimer {
+  font-family: "Space Grotesk", sans-serif;
+  color: #f0f0f0;
+  margin: 6rem auto 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.disclaimer .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.disclaimer-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 5px solid #ff0000; /* F1 Red accent */
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.disclaimer h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #ff0000; /* F1 Red accent */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.disclaimer h3 {
+  font-size: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.disclaimer p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.disclaimer p.highlight {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .disclaimer-card {
+    padding: 20px 15px;
+  }
+
+  .disclaimer h2 {
+    font-size: 26px;
+  }
+
+  .disclaimer h3 {
+    font-size: 20px;
+  }
+
+  .disclaimer p,
+  .disclaimer p.highlight {
+    font-size: 15px;
   }
 }
