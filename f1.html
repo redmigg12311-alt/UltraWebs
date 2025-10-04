@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>F1 Live | UltraWebs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- JWPlayer -->
+  <script src="https://cdn.jwplayer.com/libraries/KB5zFt7A.js"></script>
+
+  <!-- Firebase -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js"></script>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/f1player.css" />
+
+  <!-- Standard Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/j9VLdCVx/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/j9VLdCVx/favicon.png">
+  <link rel="shortcut icon" href="https://i.ibb.co/j9VLdCVx/favicon.png" type="image/x-icon">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/j9VLdCVx/favicon.png">
+
+  <!-- Android / Web App Manifest -->
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-TileImage" content="https://i.ibb.co/j9VLdCVx/favicon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="F1 Live | UltraWebs">
+  <meta property="og:description"
+    content="Watch Formula 1 live online for free. UltraWebs offers F1 streaming with instant access, no registration required.">
+  <meta property="og:image" content="https://i.ibb.co/Gfd113FJ/Woyx-ZXHTTdaia-IDo-VOXg-Iw.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://ultra-webs.vercel.app/f1">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@UltraWebs">
+  <meta name="twitter:title" content="F1 Live | UltraWebs">
+  <meta name="twitter:description"
+    content="Enjoy Formula 1 live streaming online with UltraWebs. Watch F1 races anytime, anywhere, on any device.">
+  <meta name="twitter:image" content="https://i.ibb.co/j9VLdCVx/favicon.png">
+
+  <!-- Optional: Safari pinned tab -->
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#00e5ff">
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="video-wrapper">
+    <div class="glass">
+      <div class="channel-info" id="channel-info">
+        <img id="channel-logo" src="https://ultrawebs.github.io/-/webpa/fancodef1.webp" alt="Logo" />
+        <span id="channel-name">Formula 1 Live</span>
+      </div>
+      <div id="player"></div>
+      <div id="play-overlay">
+        <button id="play-button">
+          <span class="material-icons">volume_up</span> Tap to Play with Sound
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclaimer Section -->
+  <section class="disclaimer">
+    <div class="container">
+      <div class="disclaimer-card">
+        <h2>Streaming</h2>
+        <p class="highlight">
+          Watch F1 streaming live in <strong>ULTRA HD</strong> for free. F1 streaming links will be available <strong>30
+            minutes before kickoff</strong>.
+        </p>
+
+        <h3>Disclaimer</h3>
+        <p>
+          Fancode F1 serves as a platform for broadcasting and distributing Formula 1 (F1) content.
+          All streaming links provided on Fancode F1 are sourced from third-party websites that are freely available on
+          the internet.
+          We simply facilitate access to these live streams and full race replays for the convenience of our users.
+        </p>
+        <p>
+          Fancode F1 endeavors to adhere to all copyright laws and regulations. Any unauthorized use, reproduction, or
+          redistribution
+          of the F1 content provided on our platform is strictly prohibited. Ownership of the Formula 1 content
+          showcased on Fancode F1
+          belongs to the respective rights holders or their content suppliers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="footer-container"></div>
+
+  <script type="module" src="js/f1player.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Panel | UltraWebs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Firebase SDK -->
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js"
+    ></script>
+
+    <!-- Google Fonts & Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-color: #00bfa5;
+        --primary-color-light: #26c6da;
+        --background-dark: #121212;
+        --surface-dark: #1f1f1f;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0bec5;
+        --accent-color: #00bfa5;
+        --error-color: #ef5350;
+        --border-radius: 12px;
+        --transition-speed: 0.3s;
+        --shadow-main: rgba(0, 191, 165, 0.3);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        background-color: var(--background-dark);
+        color: var(--text-primary);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem 1.5rem 3rem;
+      }
+
+      header {
+        width: 100%;
+        max-width: 720px;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        padding: 1.5rem 0;
+        color: var(--primary-color);
+        letter-spacing: 0.06em;
+        text-shadow: 0 0 8px var(--primary-color);
+        user-select: none;
+      }
+
+      .container {
+        background-color: var(--surface-dark);
+        width: 100%;
+        max-width: 720px;
+        padding: 2.5rem 2rem 3rem;
+        border-radius: var(--border-radius);
+        box-shadow: 0 0 30px var(--shadow-main);
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+        transition: box-shadow var(--transition-speed) ease;
+      }
+
+      .container:hover {
+        box-shadow: 0 0 40px var(--primary-color-light);
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--primary-color);
+        text-align: center;
+        margin: 0;
+        text-shadow: 0 0 6px var(--primary-color-light);
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      label {
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--text-secondary);
+      }
+
+      input[type="text"],
+      select {
+        padding: 14px 18px;
+        font-size: 1rem;
+        border-radius: var(--border-radius);
+        border: 1.5px solid transparent;
+        background-color: #222;
+        color: var(--text-primary);
+        transition: border-color var(--transition-speed) ease,
+          background-color var(--transition-speed) ease,
+          box-shadow var(--transition-speed) ease;
+        outline: none;
+      }
+
+      input[type="text"]::placeholder {
+        color: #555;
+      }
+
+      input[type="text"]:focus,
+      select:focus {
+        border-color: var(--primary-color);
+        background-color: #1a1a1a;
+        box-shadow: 0 0 8px var(--primary-color-light);
+      }
+
+      button#saveBtn {
+        background-color: var(--primary-color);
+        color: #121212;
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 16px;
+        border-radius: var(--border-radius);
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 15px var(--primary-color-light);
+      }
+
+      button#saveBtn:hover {
+        background-color: var(--primary-color-light);
+        box-shadow: 0 6px 20px var(--primary-color-light);
+      }
+
+      .preview {
+        text-align: center;
+        border: 1.5px solid var(--primary-color);
+        border-radius: var(--border-radius);
+        padding: 25px 20px;
+        background-color: #1a1a1a;
+        box-shadow: 0 0 15px var(--primary-color-light);
+      }
+
+      .preview img {
+        max-width: 130px;
+        border-radius: var(--border-radius);
+        margin-bottom: 12px;
+        border: 2px solid var(--primary-color);
+      }
+
+      .preview p {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .timestamp {
+        margin-top: 8px;
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        text-align: center;
+      }
+
+      .popup {
+        position: fixed;
+        top: 1.6rem;
+        right: 1.5rem;
+        background-color: var(--primary-color);
+        color: #121212;
+        padding: 15px 26px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 0 25px 5px var(--primary-color-light);
+        font-weight: 700;
+        font-size: 1rem;
+        display: none;
+        z-index: 1100;
+        text-align: center;
+      }
+
+      .popup.error {
+        background-color: var(--error-color);
+        color: #fff;
+        box-shadow: 0 0 30px 4px #f44336cc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>UltraWebs Admin Panel</header>
+
+    <main class="container">
+      <h2>Update F1 Channel</h2>
+
+      <!-- Title input -->
+      <div class="form-group">
+        <label for="title-prefix">Event Name</label>
+        <input
+          type="text"
+          id="title-prefix"
+          placeholder="Enter event name, e.g., Indian GP 2025 F1 Live"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="title-suffix">Session</label>
+        <select id="title-suffix">
+          <option value="Practice 1">Practice 1</option>
+          <option value="Practice 2">Practice 2</option>
+          <option value="Practice 3">Practice 3</option>
+          <option value="Qualifying">Qualifying</option>
+          <option value="Race">Race</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="logo">Logo URL</label>
+        <input type="text" id="logo" placeholder="Enter logo URL" />
+      </div>
+
+      <div class="form-group">
+        <label for="url">Stream URL (m3u8)</label>
+        <input type="text" id="url" placeholder="Enter stream URL (m3u8)" />
+      </div>
+
+      <button id="saveBtn">Save Changes</button>
+
+      <section class="preview">
+        <img id="logo-preview" src="" alt="Channel logo preview" />
+        <p id="title-preview">Preview Title</p>
+        <p class="timestamp" id="timestamp">Last Updated: --</p>
+      </section>
+    </main>
+
+    <div class="popup" id="popup-msg"></div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+        setDoc,
+      } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBMFvQQ-IRJ0-ihCsvF6gHhYakvm47H01A",
+        authDomain: "f1linklive.firebaseapp.com",
+        projectId: "f1linklive",
+        storageBucket: "f1linklive.firebasestorage.app",
+        messagingSenderId: "1053156100165",
+        appId: "1:1053156100165:web:fba7ff2a0e623cd8737b2c",
+        measurementId: "G-N34LK2EVPE",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const prefixInput = document.getElementById("title-prefix");
+      const suffixSelect = document.getElementById("title-suffix");
+      const logoInput = document.getElementById("logo");
+      const urlInput = document.getElementById("url");
+      const saveBtn = document.getElementById("saveBtn");
+      const logoPreview = document.getElementById("logo-preview");
+      const titlePreview = document.getElementById("title-preview");
+      const timestampEl = document.getElementById("timestamp");
+      const popupMsg = document.getElementById("popup-msg");
+
+      const channelDoc = doc(db, "channels", "f1");
+
+      // Load existing data
+      getDoc(channelDoc).then((docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data.title) {
+            const parts = data.title.split(/ (Practice 1|Practice 2|Practice 3|Qualifying|Race)$/);
+            prefixInput.value = parts[0] || "";
+            suffixSelect.value = parts[1] || "Practice 1";
+          }
+          logoInput.value = data.logo || "";
+          urlInput.value = data.url || "";
+          titlePreview.textContent = data.title || "Preview Title";
+          logoPreview.src = data.logo || "";
+          timestampEl.textContent = data.updatedAt
+            ? `Last Updated: ${new Date(data.updatedAt).toLocaleString()}`
+            : "Last Updated: --";
+        }
+      });
+
+      function updateTitlePreview() {
+        const prefix = prefixInput.value.trim();
+        const suffix = suffixSelect.value;
+        const combined = prefix ? `${prefix} ${suffix}` : suffix;
+        titlePreview.textContent = combined;
+        return combined;
+      }
+
+      // Live preview
+      prefixInput.addEventListener("input", updateTitlePreview);
+      suffixSelect.addEventListener("change", updateTitlePreview);
+      logoInput.addEventListener("input", () => (logoPreview.src = logoInput.value || ""));
+
+      // Popup
+      function showPopup(message, isError = false) {
+        popupMsg.textContent = message;
+        popupMsg.classList.toggle("error", isError);
+        popupMsg.style.display = "block";
+        setTimeout(() => (popupMsg.style.display = "none"), 3000);
+      }
+
+      // Save to Firebase
+      saveBtn.addEventListener("click", async () => {
+        if (!prefixInput.value.trim() || !logoInput.value.trim() || !urlInput.value.trim()) {
+          showPopup("Please fill all fields!", true);
+          return;
+        }
+        try {
+          const updatedAt = new Date().toISOString();
+          const combinedTitle = updateTitlePreview();
+          await setDoc(channelDoc, {
+            title: combinedTitle,
+            logo: logoInput.value.trim(),
+            url: urlInput.value.trim(),
+            updatedAt,
+          });
+          timestampEl.textContent = `Last Updated: ${new Date(updatedAt).toLocaleString()}`;
+          showPopup("Channel updated successfully!");
+        } catch (err) {
+          console.error(err);
+          showPopup("Failed to update channel!", true);
+        }
+      });
+    </script>
+  </body>
+</html>

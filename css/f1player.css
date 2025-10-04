@@ -1,0 +1,285 @@
+/* ===== GLOBAL RESET & FONT ===== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background: url("https://wallpapercave.com/wp/wp15392660.jpg") no-repeat
+    center center fixed;
+  background-size: cover;
+  color: #fff;
+  min-height: 100%;
+  position: relative;
+}
+
+/* DARK OVERLAY */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 0;
+}
+
+/* MODERN BACK BUTTON */
+.back-btn {
+  position: absolute;
+  /* below the header */
+  top: 6rem;
+  /* adjust as per header height */
+  left: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  background: rgba(0, 229, 255, 0.15);
+  /* subtle neon glow */
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  color: #00e5ff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 15;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.6), 0 4px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease-in-out, transform 0.2s;
+}
+
+.back-btn:hover {
+  transform: scale(1.15) rotate(-5deg);
+  background: rgba(0, 229, 255, 0.25);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.8), 0 6px 25px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .back-btn {
+    top: 5rem;
+    left: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn {
+    top: 5rem;
+    left: 0.8rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.6rem;
+  }
+}
+
+/* VIDEO WRAPPER */
+.video-wrapper {
+  width: 95%;
+  max-width: 1000px;
+  margin: 6rem auto 2rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 5rem;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+/* CHANNEL INFO */
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.channel-info img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  padding: 2px;
+}
+
+.channel-info span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #00e5ff;
+}
+
+/* PLAYER */
+#player {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 0 0 1rem 1rem;
+  overflow: hidden;
+}
+
+/* PLAY OVERLAY */
+#play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+  z-index: 5;
+}
+
+#play-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s, background 0.2s;
+}
+
+#play-button:hover {
+  transform: scale(1.05);
+  background: rgba(0, 229, 255, 0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .channel-info span {
+    font-size: 1rem;
+  }
+
+  .channel-info img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  #play-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .channel-info span {
+    font-size: 0.9rem;
+  }
+
+  .channel-info img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  #play-button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Force JW Player global font */
+.jwplayer,
+.jwplayer * {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 13px !important;
+  /* compact */
+  line-height: 1.4 !important;
+  letter-spacing: 0.2px;
+}
+
+/* Primary Buttons & Icons */
+.jwplayer .jw-icon-inline.jw-button-color,
+.jwplayer .jw-icon.jw-button-color path {
+  color: #00e5ff !important;
+  fill: #00e5ff !important;
+  transition: all 0.3s ease;
+}
+
+.jw-icon-inline.jw-button-color:hover {
+  filter: brightness(1.4);
+  text-shadow: 0 0 6px rgba(0, 229, 255, 0.8);
+}
+
+/* Progress Bar */
+.jwplayer .jw-progress {
+  background: linear-gradient(90deg, #00e5ff, #00bfff) !important;
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.6);
+  border-radius: 4px;
+}
+
+/* Settings Menu (Glassmorphism) */
+.jwplayer .jw-settings-menu {
+  background: rgba(20, 20, 20, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6) !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+/* Settings Items */
+.jw-settings-menu .jw-settings-content-item {
+  padding: 0.6rem 1rem !important;
+  font-size: 13px !important;
+  color: #eee !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.jw-settings-menu .jw-settings-content-item:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+/* Time Slider (Glassmorphism) */
+.jwplayer .jw-controlbar .jw-slider-time {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-radius: 6px !important;
+  height: 6px !important;
+}
+
+/* Buffered (gray bar) */
+.jwplayer .jw-controlbar .jw-slider-time .jw-buffer {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+}
+
+/* Played progress */
+.jwplayer .jw-controlbar .jw-slider-time .jw-progress {
+  background: linear-gradient(90deg, #00e5ff, #00bfff) !important;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+  border-radius: 6px !important;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .jwplayer .jw-text-track-display {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .jwplayer .jw-text-track-display {
+    font-size: 12px !important;
+  }
+}
