@@ -657,7 +657,7 @@ const channels = [
     image:
       "https://cdn.freebiesupply.com/logos/large/2x/batman-3-logo-png-transparent.png",
     category: "Kids",
-    stream: "https://youtu.be/TTUMev7J8jQ",
+    stream: "https://www.youtube.com/watch?v=SNZed-xesEA&list=PLcrApfnvcfVwTbljwqvmK0tdwcZnVyJ9n",
   },
   {
     name: "Emma And Joey - Nursery Rhymes",
