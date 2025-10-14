@@ -134,11 +134,13 @@ select {
   backdrop-filter: blur(6px);
 }
 
+/* Placeholder for input fields */
 input::placeholder {
   color: #999;
   font-style: italic;
 }
 
+/* Focus styles */
 input:focus,
 select:focus {
   border-color: var(--primary);
@@ -146,6 +148,24 @@ select:focus {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* =========================
+     Dropdown Placeholder Fix
+  ========================== */
+
+/* When no value selected — show placeholder color */
+select:invalid {
+  color: var(--text-muted); /* Light gray placeholder text */
+}
+
+/* Normal dropdown option colors */
+select option {
+  color: var(--text-light);
+  background-color: var(--bg-dark);
+}
+
+/* =========================
+     Buttons
+  ========================== */
 button {
   padding: 14px 22px;
   font-size: 1rem;
@@ -327,3 +347,20 @@ button:hover {
     margin-bottom: 0.5rem;
   }
 }
+/* =========================
+     Additional Styles
+  ========================== */
+select option[value="Empty"] {
+  display: none;
+}
+/* Hides the empty option in the dropdown */
+select:invalid option[value="Empty"] {
+  display: block;
+  color: var(--text-muted);
+  font-style: italic;
+}
+/* Shows the empty option only when no value is selected */
+/* =========================
+     End of File
+  ========================== */
+  
