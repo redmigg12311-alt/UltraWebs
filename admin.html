@@ -1,269 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UltraWebs Admin Panel</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UltraWebs Admin Panel</title>
+    <!-- Google Fonts & Material Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts & Material Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- Font Awesome (Optional) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-  <!-- Font Awesome (Optional) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/admin.css" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/admin.css" />
+    <!-- Standard Favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://i.ibb.co/qF4BNscw/uwadmin.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://i.ibb.co/qF4BNscw/uwadmin.png"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://i.ibb.co/qF4BNscw/uwadmin.png"
+      type="image/x-icon"
+    />
 
-  <!-- Standard Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/qF4BNscw/uwadmin.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/qF4BNscw/uwadmin.png" />
-  <link rel="shortcut icon" href="https://i.ibb.co/qF4BNscw/uwadmin.png" type="image/x-icon" />
+    <!-- Apple Touch Icon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://i.ibb.co/qF4BNscw/uwadmin.png"
+    />
 
-  <!-- Apple Touch Icon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/qF4BNscw/uwadmin.png" />
+    <!-- Android / Web App Manifest -->
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#000000" />
 
-  <!-- Android / Web App Manifest -->
-  <link rel="manifest" href="site.webmanifest" />
-  <meta name="theme-color" content="#000000" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="UltraWebs Admin Panel" />
+    <meta
+      property="og:description"
+      content="Manage streaming links and channels easily with UltraWebs Admin Panel."
+    />
+    <meta
+      property="og:image"
+      content="https://i.ibb.co/x8jc9h1S/Vg7i-N0-HOSN2-A3z-SN-bw-B6-Q.webp"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://ultra-webs.vercel.app/admin" />
 
-  <!-- Microsoft Tiles -->
-  <meta name="msapplication-TileColor" content="#2b5797" />
-  <meta name="msapplication-TileImage" content="https://i.ibb.co/qF4BNscw/uwadmin.png" /> <!--https://i.ibb.co/Swk3skds/N41-ER-y-KRk-Gn-D09vwaei-Cw.jpg-->>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@UltraWebs" />
+    <meta name="twitter:title" content="UltraWebs Admin Panel" />
+    <meta
+      name="twitter:description"
+      content="Easily update and manage streaming links and channel previews using the UltraWebs Admin Panel."
+    />
+    <meta
+      name="twitter:image"
+      content="https://i.ibb.co/x8jc9h1S/Vg7i-N0-HOSN2-A3z-SN-bw-B6-Q.webp"
+    />
+  </head>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="UltraWebs Admin Panel" />
-  <meta property="og:description" content="Manage streaming links and channels easily with UltraWebs Admin Panel." />
-  <meta property="og:image" content="https://i.ibb.co/x8jc9h1S/Vg7i-N0-HOSN2-A3z-SN-bw-B6-Q.webp" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:url" content="https://ultra-webs.vercel.app/admin" />
+  <body>
+    <header>UltraWebs Admin Panel</header>
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@UltraWebs" />
-  <meta name="twitter:title" content="UltraWebs Admin Panel" />
-  <meta name="twitter:description"
-    content="Easily update and manage streaming links and channel previews using the UltraWebs Admin Panel." />
-  <meta name="twitter:image" content="https://i.ibb.co/x8jc9h1S/Vg7i-N0-HOSN2-A3z-SN-bw-B6-Q.webp" />
+    <main class="container">
+      <!-- Update Channel Section -->
+      <section class="card" aria-labelledby="update-title">
+        <h2 id="update-title">Update F1 Link</h2>
 
-  <!-- Optional: Safari pinned tab -->
-  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#00e5ff" />
-</head>
-
-<body>
-  <header>UltraWebs Admin Panel</header>
-
-  <main class="container">
-    <section class="card" aria-labelledby="update-title">
-      <h2 id="update-title">Update F1 Link</h2>
-
-      <form id="channelForm" autocomplete="off">
-        <div class="form-group">
-          <label for="title-prefix">Event Name</label>
-          <input type="text" id="title-prefix" name="title-prefix" placeholder="Indian GP 2025 F1 Live" required />
-        </div>
-
-        <div class="form-group">
-          <label for="title-suffix">Session</label>
-          <select id="title-suffix" name="title-suffix" required>
-            <option value="Practice 1">Practice 1</option>
-            <option value="Practice 2">Practice 2</option>
-            <option value="Practice 3">Practice 3</option>
-            <option value="Sprint Qualifying">Sprint Qualifying</option>
-            <option value="Sprint">Sprint</option>
-            <option value="Qualifying">Qualifying</option>
-            <option value="Race">Race</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="logo">Logo URL</label>
-          <input type="text" id="logo" name="logo" placeholder="Enter logo URL" required />
-        </div>
-
-        <div class="form-group">
-          <label for="url">Stream URL (m3u8)</label>
-          <input type="text" id="url" name="url" placeholder="Enter stream URL (m3u8)" required />
-        </div>
-
-        <button type="submit" id="saveBtn">Save Changes</button>
-      </form>
-
-      <div class="preview" aria-live="polite" aria-atomic="true">
-        <img id="logo-preview" src="" alt="Logo Preview" />
-        <p id="title-preview">Preview Title</p>
-        <p class="timestamp" id="timestamp">Last Updated: --</p>
-      </div>
-    </section>
-
-    <section class="card" aria-labelledby="database-title">
-      <h2 id="database-title">Saved Database Preview</h2>
-      <div class="saved-channels" id="saved-channels" aria-live="polite"></div>
-    </section>
-  </main>
-
-  <div class="popup" id="popup-msg" role="alert" aria-live="assertive"></div>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-    import {
-      getFirestore,
-      doc,
-      getDoc,
-      setDoc,
-    } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyBMFvQQ-IRJ0-ihCsvF6gHhYakvm47H01A",
-      authDomain: "f1linklive.firebaseapp.com",
-      projectId: "f1linklive",
-      storageBucket: "f1linklive.appspot.com",
-      messagingSenderId: "1053156100165",
-      appId: "1:1053156100165:web:fba7ff2a0e623cd8737b2c",
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const prefixInput = document.getElementById("title-prefix");
-    const suffixSelect = document.getElementById("title-suffix");
-    const logoInput = document.getElementById("logo");
-    const urlInput = document.getElementById("url");
-    const saveBtn = document.getElementById("saveBtn");
-    const logoPreview = document.getElementById("logo-preview");
-    const titlePreview = document.getElementById("title-preview");
-    const timestampEl = document.getElementById("timestamp");
-    const popupMsg = document.getElementById("popup-msg");
-    const savedChannels = document.getElementById("saved-channels");
-
-    const channelDoc = doc(db, "channels", "f1");
-
-    function formatDateTo12Hour(date) {
-      const options = {
-        year: "numeric",
-        month: "short",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true,
-      };
-      return date.toLocaleString("en-US", options);
-    }
-
-    async function loadChannel() {
-      const docSnap = await getDoc(channelDoc);
-      savedChannels.innerHTML = "";
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        const combinedTitle = data.title || "Untitled";
-        const formattedDate = data.updatedAt || "--";
-
-        // Preview
-        titlePreview.textContent = combinedTitle;
-        logoPreview.src = data.logo || "";
-        timestampEl.textContent = `Last Updated: ${formattedDate}`;
-
-        // Saved data card with Edit button
-        savedChannels.innerHTML = `
-          <div class="channel-card">
-            <img src="${data.logo}" alt="Logo" />
-            <div class="channel-info">
-              <h3>${combinedTitle}</h3>
-              <p><strong>Stream URL:</strong> <a href="${data.url}" target="_blank" rel="noopener">${data.url}</a></p>
-              <p class="timestamp">Last Updated: ${formattedDate}</p>
-            </div>
-            <button class="edit-btn" aria-label="Edit Channel">Edit</button>
+        <form id="channelForm" autocomplete="off">
+          <div class="form-group">
+            <label for="title-prefix">Event Name</label>
+            <input
+              type="text"
+              id="title-prefix"
+              name="title-prefix"
+              placeholder="Indian GP 2025 F1 Live"
+              required
+            />
           </div>
-        `;
 
-        document.querySelector(".edit-btn").addEventListener("click", () => {
-          // Split title into prefix & suffix
-          const suffixOption = Array.from(suffixSelect.options).find((opt) =>
-            combinedTitle.endsWith(opt.value)
-          );
-          const suffixVal = suffixOption
-            ? suffixOption.value
-            : suffixSelect.value;
-          const prefixVal = combinedTitle.replace(` ${suffixVal}`, "");
+          <div class="form-group">
+            <label for="title-suffix">Session</label>
+            <select id="title-suffix" name="title-suffix" required>
+              <option value="Practice 1">Practice 1</option>
+              <option value="Practice 2">Practice 2</option>
+              <option value="Practice 3">Practice 3</option>
+              <option value="Sprint Qualifying">Sprint Qualifying</option>
+              <option value="Sprint">Sprint</option>
+              <option value="Qualifying">Qualifying</option>
+              <option value="Race">Race</option>
+            </select>
+          </div>
 
-          prefixInput.value = prefixVal;
-          suffixSelect.value = suffixVal;
-          logoInput.value = data.logo;
-          urlInput.value = data.url;
+          <div class="form-group">
+            <label for="logo">Logo URL</label>
+            <input
+              type="text"
+              id="logo"
+              name="logo"
+              placeholder="Enter logo URL"
+              required
+            />
+          </div>
 
-          updateTitlePreview();
-          logoPreview.src = data.logo;
-        });
+          <div class="form-group">
+            <label for="url">Stream URL (m3u8)</label>
+            <input
+              type="text"
+              id="url"
+              name="url"
+              placeholder="Enter stream URL (m3u8)"
+              required
+            />
+          </div>
+
+          <button type="submit" id="saveBtn">Save Changes</button>
+        </form>
+
+        <div class="preview" aria-live="polite" aria-atomic="true">
+          <img id="logo-preview" src="" alt="Logo Preview" />
+          <p id="title-preview">Preview Title</p>
+          <p class="timestamp" id="timestamp">Last Updated: --</p>
+        </div>
+      </section>
+
+      <!-- Saved Channels Section -->
+      <section class="card" aria-labelledby="database-title">
+        <h2 id="database-title">Saved Database Preview</h2>
+        <div
+          class="saved-channels"
+          id="saved-channels"
+          aria-live="polite"
+        ></div>
+      </section>
+    </main>
+
+    <!-- Popup Message -->
+    <div id="popup-overlay" class="popup-overlay"></div>
+    <div id="popup-msg" class="popup"></div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+        setDoc,
+      } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBMFvQQ-IRJ0-ihCsvF6gHhYakvm47H01A",
+        authDomain: "f1linklive.firebaseapp.com",
+        projectId: "f1linklive",
+        storageBucket: "f1linklive.appspot.com",
+        messagingSenderId: "1053156100165",
+        appId: "1:1053156100165:web:fba7ff2a0e623cd8737b2c",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const prefixInput = document.getElementById("title-prefix");
+      const suffixSelect = document.getElementById("title-suffix");
+      const logoInput = document.getElementById("logo");
+      const urlInput = document.getElementById("url");
+      const saveBtn = document.getElementById("saveBtn");
+      const logoPreview = document.getElementById("logo-preview");
+      const titlePreview = document.getElementById("title-preview");
+      const timestampEl = document.getElementById("timestamp");
+      const popupMsg = document.getElementById("popup-msg");
+      const savedChannels = document.getElementById("saved-channels");
+
+      const channelDoc = doc(db, "channels", "f1");
+
+      function formatDateTo12Hour(date) {
+        const options = {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        };
+        return date.toLocaleString("en-US", options);
       }
-    }
 
-    function updateTitlePreview() {
-      const combined = prefixInput.value.trim()
-        ? `${prefixInput.value.trim()} ${suffixSelect.value}`
-        : suffixSelect.value;
-      titlePreview.textContent = combined;
-      return combined;
-    }
+      async function loadChannel() {
+        const docSnap = await getDoc(channelDoc);
+        savedChannels.innerHTML = "";
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          const combinedTitle = data.title || "Untitled";
+          const formattedDate = data.updatedAt || "--";
 
-    prefixInput.addEventListener("input", updateTitlePreview);
-    suffixSelect.addEventListener("change", updateTitlePreview);
-    logoInput.addEventListener(
-      "input",
-      () => (logoPreview.src = logoInput.value || "")
-    );
+          // Preview
+          titlePreview.textContent = combinedTitle;
+          logoPreview.src = data.logo || "";
+          timestampEl.textContent = `Last Updated: ${formattedDate}`;
 
-    function showPopup(msg, isError = false) {
-      popupMsg.textContent = msg;
-      popupMsg.classList.toggle("error", isError);
-      popupMsg.style.display = "block";
-      setTimeout(() => (popupMsg.style.display = "none"), 3000);
-    }
+          // Saved data card
+          savedChannels.innerHTML = `
+        <div class="channel-card">
+          <img src="${data.logo}" alt="Logo" />
+          <div class="channel-info">
+            <h3>${combinedTitle}</h3>
+            <p><strong>Stream URL:</strong> <a href="${data.url}" target="_blank" rel="noopener">${data.url}</a></p>
+            <p class="timestamp">Last Updated: ${formattedDate}</p>
+          </div>
+          <button class="edit-btn" aria-label="Edit Channel">Edit</button>
+        </div>
+      `;
 
-    saveBtn.addEventListener("click", async (e) => {
-      e.preventDefault();
-      if (
-        !prefixInput.value.trim() ||
-        !logoInput.value.trim() ||
-        !urlInput.value.trim()
-      ) {
-        showPopup("Please fill all fields!", true);
-        return;
+          document.querySelector(".edit-btn").addEventListener("click", () => {
+            const suffixOption = Array.from(suffixSelect.options).find((opt) =>
+              combinedTitle.endsWith(opt.value)
+            );
+            const suffixVal = suffixOption
+              ? suffixOption.value
+              : suffixSelect.value;
+            const prefixVal = combinedTitle.replace(` ${suffixVal}`, "");
+
+            prefixInput.value = prefixVal;
+            suffixSelect.value = suffixVal;
+            logoInput.value = data.logo;
+            urlInput.value = data.url;
+
+            updateTitlePreview();
+            logoPreview.src = data.logo;
+          });
+        }
       }
-      try {
-        const title = updateTitlePreview();
-        const updatedAt = formatDateTo12Hour(new Date());
-        await setDoc(channelDoc, {
-          title,
-          logo: logoInput.value.trim(),
-          url: urlInput.value.trim(),
-          updatedAt,
-        });
 
-        showPopup("Channel updated successfully!");
-
-        // Clear inputs
-        prefixInput.value = "";
-        suffixSelect.value = "Practice 1";
-        logoInput.value = "";
-        urlInput.value = "";
-        logoPreview.src = "";
-        titlePreview.textContent = "Preview Title";
-
-        await loadChannel();
-      } catch (err) {
-        console.error(err);
-        showPopup("Failed to update channel!", true);
+      function updateTitlePreview() {
+        const combined = prefixInput.value.trim()
+          ? `${prefixInput.value.trim()} ${suffixSelect.value}`
+          : suffixSelect.value;
+        titlePreview.textContent = combined;
+        return combined;
       }
-    });
 
-    loadChannel();
-  </script>
-</body>
+      prefixInput.addEventListener("input", updateTitlePreview);
+      suffixSelect.addEventListener("change", updateTitlePreview);
+      logoInput.addEventListener(
+        "input",
+        () => (logoPreview.src = logoInput.value || "")
+      );
 
+      function showPopup(msg, type = "success") {
+        const popup = document.getElementById("popup-msg");
+        const overlay = document.getElementById("popup-overlay");
+
+        // Set message and type
+        popup.textContent = msg;
+        popup.className = "popup"; // reset classes
+        popup.classList.add(type); // success or error
+
+        // Show popup and overlay instantly
+        popup.style.display = "block";
+        overlay.style.display = "block";
+
+        // Hide after 3 seconds and instantly remove blur
+        if (popup.timeoutId) clearTimeout(popup.timeoutId);
+        popup.timeoutId = setTimeout(() => {
+          popup.style.display = "none";
+          overlay.style.display = "none"; // instant unblur
+        }, 3000);
+      }
+
+      saveBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        if (
+          !prefixInput.value.trim() ||
+          !logoInput.value.trim() ||
+          !urlInput.value.trim()
+        ) {
+          showPopup("Please fill all fields!", "error");
+          return;
+        }
+
+        showPopup("Updating...", "success");
+
+        try {
+          const title = updateTitlePreview();
+          const updatedAt = formatDateTo12Hour(new Date());
+
+          await setDoc(channelDoc, {
+            title,
+            logo: logoInput.value.trim(),
+            url: urlInput.value.trim(),
+            updatedAt,
+          });
+
+          showPopup("Channel updated successfully!", "success");
+
+          // Clear inputs
+          prefixInput.value = "";
+          suffixSelect.value = "Practice 1";
+          logoInput.value = "";
+          urlInput.value = "";
+          logoPreview.src = "";
+          titlePreview.textContent = "Preview Title";
+
+          await loadChannel();
+        } catch (err) {
+          console.error(err);
+          showPopup("Failed to update channel!", "error");
+        }
+      });
+
+      loadChannel();
+    </script>
+  </body>
 </html>
