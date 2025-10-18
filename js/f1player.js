@@ -1,7 +1,11 @@
 // f1player.js
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
+import {
+  getFirestore,
+  doc,
+  onSnapshot,
+} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
 
 // Firebase config
 const firebaseConfig = {
@@ -27,6 +31,8 @@ playerInstance.setup({
   mute: true,
   controls: true,
   androidhls: true,
+  abouttext: "Ultrawebs(HM)",
+  aboutlink: "https://ultra-webs.vercel.app/",
   playbackRateControls: true,
   cast: { appId: "CC1AD845" },
   airplay: true,
@@ -34,6 +40,11 @@ playerInstance.setup({
   title: "F1 Live Stream",
   image: "https://ultrawebs.github.io/-/webpa/fancodef1.webp",
   type: "hls",
+  fullscreen: {
+    enabled: true,
+    displayLabel: true,
+    label: "Exit Fullscreen",
+  },
 });
 
 // Play overlay
@@ -56,15 +67,21 @@ onSnapshot(channelDoc, (docSnap) => {
     const channelNameEl = document.getElementById("channel-name");
     const channelLogoEl = document.getElementById("channel-logo");
 
-    if (channelNameEl) channelNameEl.textContent = data.title || "Formula 1 Live";
-    if (channelLogoEl) channelLogoEl.src = data.logo || "https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg";
+    if (channelNameEl)
+      channelNameEl.textContent = data.title || "Formula 1 Live";
+    if (channelLogoEl)
+      channelLogoEl.src =
+        data.logo ||
+        "https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg";
 
     if (data.url) {
-      playerInstance.load([{
-        file: data.url,
-        title: data.title,
-        type: "hls",
-      }]);
+      playerInstance.load([
+        {
+          file: data.url,
+          title: data.title,
+          type: "hls",
+        },
+      ]);
     }
   }
 });
@@ -72,7 +89,7 @@ onSnapshot(channelDoc, (docSnap) => {
 // Load header and footer
 async function loadHeaderFooter() {
   try {
-    const header = await fetch("header.html").then(res => res.text());
+    const header = await fetch("header.html").then((res) => res.text());
     const headerPlaceholder = document.getElementById("header-placeholder");
     if (headerPlaceholder) headerPlaceholder.innerHTML = header;
 
@@ -80,10 +97,14 @@ async function loadHeaderFooter() {
     const nav = document.querySelector(".nav");
     if (menuToggle && nav) {
       menuToggle.addEventListener("click", () => nav.classList.toggle("show"));
-      nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => nav.classList.remove("show")));
+      nav
+        .querySelectorAll("a")
+        .forEach((link) =>
+          link.addEventListener("click", () => nav.classList.remove("show"))
+        );
     }
 
-    const footer = await fetch("footer.html").then(res => res.text());
+    const footer = await fetch("footer.html").then((res) => res.text());
     const footerContainer = document.getElementById("footer-container");
     if (footerContainer) footerContainer.innerHTML = footer;
   } catch (err) {
