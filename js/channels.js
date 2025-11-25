@@ -717,6 +717,14 @@ const channels = [
       "https://amg01117-amg01117c1-amgplt0165.playout.now3.amagi.tv/playlist.m3u8",
   },
   {
+    name: "Z Bollymovies",
+    image:
+      "https://framerusercontent.com/images/mqfJ18x4jYe0GbZUbxSHsbnWU.png",
+    category: "Movie",
+    stream:
+      "https://amg17931-zee-amg17931c8-samsung-au-8871.playouts.now.amagi.tv/playlist.m3u8",
+  },
+  {
     name: "Colors Cineplex Bollywood",
     image:
       "https://jiotvimages.cdn.jio.com/dare_images/images/Colors_Cineplex_Bollywood.png",
