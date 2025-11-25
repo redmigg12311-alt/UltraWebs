@@ -565,7 +565,7 @@ const channels = [
     image:
       "https://static.wikia.nocookie.net/yugioh/images/6/6d/Yu-Gi-OhLogo.png",
     category: "Anime",
-    stream: "https://youtu.be/QAIcUkgSuKA",
+    stream: "https://youtu.be/Ht93dLprSEg",
   },
   {
     name: "Anime Vanguard",
@@ -585,7 +585,7 @@ const channels = [
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Dragon_Ball_Super.png/1200px-Dragon_Ball_Super.png",
     category: "Anime",
-    stream: "https://youtu.be/UYFcyyVaaQ4",
+    stream: "https://youtu.be/GUFermIDEHg",
   },
   {
     name: "Ultimate Spider-Man",
@@ -691,7 +691,7 @@ const channels = [
     image:
       "https://api.duniagames.co.id/api/product/upload/image/17792057321731573408.png",
     category: "Anime",
-    stream: "https://youtu.be/DQTqAZdEPwU",
+    stream: "https://www.youtube.com/watch?v=VvK6UZWNU2Q&list=PLwLSw1_eDZl2XdtLhB9NG2Ch050jWFm9G",
   },
   {
     name: "ABP Asmita",
