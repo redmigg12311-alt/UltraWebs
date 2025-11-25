@@ -424,27 +424,27 @@ const channels = [
     name: "Pixer Cars",
     category: "Kids",
     image: "https://i.ibb.co/MDtkJTt6/cars-seeklogo.png",
-    stream: "https://youtu.be/RVORY42HQXM",
+    stream: "https://youtu.be/FPAVYRiJb84",
   },
   {
     name: "Phineas and Ferb",
     category: "Kids",
     image:
       "https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/Phineas_and_Ferb_logo.svg/1920px-Phineas_and_Ferb_logo.svg.png",
-    stream: "https://youtu.be/0uUCyGKZm1M",
+    stream: "https://youtu.be/8z_xyfgl3mM",
   },
   {
     name: "Peppa Pig",
     category: "Kids",
     image:
       "https://static.wikia.nocookie.net/logopedia/images/c/c5/Peppa_Pig.svg",
-    stream: "https://youtu.be/o9VXLSmD69M",
+    stream: "https://youtu.be/9U-I_5TL5i0",
   },
   {
     name: "Shaun The Sheep",
     category: "Kids",
     image: "https://i.ibb.co/zV5G5RNC/Shaun-The-Sheep.png",
-    stream: "https://youtu.be/dLz8GUOveio",
+    stream: "https://youtu.be/rzqV-zuwLFY",
   },
   {
     name: "Battle Bots",
