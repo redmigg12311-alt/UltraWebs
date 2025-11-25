@@ -399,7 +399,7 @@ const channels = [
     category: "Kids",
     image:
       "https://logos-world.net/wp-content/uploads/2022/02/Mickey-Mouse-Logo.png",
-    stream: "https://youtu.be/762J6L_lduo",
+    stream: "https://youtu.be/XAUGUxG08sg",
   },
   {
     name: "Tom and Jerry",
@@ -450,7 +450,7 @@ const channels = [
     name: "Battle Bots",
     category: "Kids",
     image: "https://i.ibb.co/m56t0Ygp/battlebots-62c739f0d6b11.png",
-    stream: "https://youtu.be/uUevHstl-Ak",
+    stream: "https://youtu.be/v1J_48SNAqo",
   },
   {
     name: "Disney Junior",
@@ -464,7 +464,7 @@ const channels = [
     image:
       "https://static.wikia.nocookie.net/ultraverse/images/0/01/Cartoon_Network_Logo_-1.png",
     category: "Kids",
-    stream: "https://youtu.be/fonMqM42xEk",
+    stream: "https://youtu.be/41hl2gTbEeI",
   },
   {
     name: "Cartoon Network",
@@ -617,7 +617,7 @@ const channels = [
     name: "PAW Patrol",
     image: "https://www.freeiconspng.com/uploads/paw-patrol-logo-png-18.png",
     category: "Kids",
-    stream: "https://youtu.be/6mb-CQ110Uo",
+    stream: "https://youtu.be/Ui_6vrFvqRI",
   },
   {
     name: "Spider-Man",
@@ -684,7 +684,7 @@ const channels = [
     image:
       "https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/S4oi7EPZbv2UEPaukW54OORa0S8/AAAABa3DdoM-tl16phbsU0YyX8VGZLrFDbxNZ1H7kv5OWRpYgdbrNukBx407cgWbgXabFKtN05iN7Qy2pcJ_LKkijHwvYISa68LnQ2I.png?r=6ef",
     category: "Kids",
-    stream: "https://youtu.be/KU2Nx63olF4",
+    stream: "https://youtu.be/YY8yc2ctN0g",
   },
   {
     name: "One Puch Man ",
