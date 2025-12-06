@@ -36,7 +36,7 @@ playerInstance.setup({
   playbackRateControls: true,
   cast: { appId: "CC1AD845" },
   airplay: true,
-  file: "https://dai.fancode.com/primary/114690_english_hls_4902ta-no_backup/vod_103_master.m3u8",
+  file: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8",
   title: "F1 Live Stream",
   image: "https://ultrawebs.github.io/-/webpa/fancodef1.webp",
   type: "hls",
