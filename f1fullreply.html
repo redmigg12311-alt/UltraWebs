@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>F1 Full Race Replay | 2025 | Ultrawebs</title>
+
+    <!-- Font: Space Grotesk (F1 style) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://i.ibb.co/j9VLdCVx/favicon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://i.ibb.co/j9VLdCVx/favicon.png"
+    />
+    <link rel="apple-touch-icon" href="https://i.ibb.co/j9VLdCVx/favicon.png" />
+    <link
+      rel="shortcut icon"
+      href="https://i.ibb.co/j9VLdCVx/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Microsoft / Windows -->
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta
+      name="msapplication-TileImage"
+      content="https://i.ibb.co/j9VLdCVx/favicon.png"
+    />
+
+    <!-- =============================
+     SEO META TAGS
+============================= -->
+    <meta
+      name="title"
+      content="F1 Full Race Replay 2025 - Ultrawebs"
+    />
+    <meta
+      name="description"
+      content="Watch Formula 1 full race replay from the 2025 season in HD. Access Grand Prix replays, qualifying sessions, sprint races and on-demand highlights. All updated and fast loading."
+    />
+    <meta
+      name="keywords"
+      content="F1, Formula 1, F1 Highlights, F1 Full Race, Grand Prix, F1 Race Replay, F1 2025, F1 2024, F1 Qualifying, Sprint Race, Ultrawebs, HD Highlights"
+    />
+
+    <!-- =============================
+     OPEN GRAPH (Facebook, WhatsApp)
+============================= -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="F1 Full Race Replay | 2025 | Ultrawebs"
+    />
+    <meta
+      property="og:description"
+      content="Stream HD Formula 1 full race replay from all GPs — 2025 season. Fast loading. Clean UI. Updated instantly."
+    />
+    <meta
+      property="og:image"
+      content="https://i.ibb.co/1nzLhN4/F1-Banner-HD.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://ultra-webs.vercel.app/f1" />
+
+    <!-- =============================
+     TWITTER CARD
+============================= -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Formula 1 Full Race Replay | 2025"
+    />
+    <meta
+      name="twitter:description"
+      content="Watch every Grand Prix replay and full race replay—2025 season. Updated daily, HD quality."
+    />
+    <meta
+      name="twitter:image"
+      content="https://i.ibb.co/1nzLhN4/F1-Banner-HD.jpg"
+    />
+
+    <!-- Safari Pinned Tab -->
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00AEEF" />
+
+    <!-- Icons & JW Player -->
+    <script
+      src="https://kit.fontawesome.com/704ff50790.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="formula175.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="left">
+          <img
+            class="logo"
+            src="https://media.formula1.com/image/upload/f_auto,c_limit,w_288,q_auto/f_auto/q_auto/fom-website/etc/designs/fom-website/images/F1_75_Logo"
+            alt="F1 Logo"
+          />
+          <img
+            class="year"
+            src="https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/year%20icon/2025.png"
+            alt="2025"
+          />
+        </div>
+
+        <!-- <div style="display:flex; gap:10px; align-items:center;">
+                <div style="color:var(--muted); font-weight:700; font-size:13px;">Season Year</div>
+                <select id="yearToggle" aria-label="Select season"
+                        style="padding:8px 10px; border-radius:8px; background:transparent; color:#E6F3FA; border:1px solid rgba(255,255,255,0.02);">
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                </select>
+            </div> -->
+      </header>
+
+      <!-- Search card -->
+      <div class="search-card" role="region" aria-label="Search Grand Prix">
+        <div class="search-left">
+          <div class="search-input-wrap" style="flex: 1">
+            <i class="fa fa-search search-icon" aria-hidden="true"></i>
+            <input
+              id="gpSearch"
+              class="search-input"
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              placeholder="Search Grand Prix (try 'Monaco', 'British', 'Las Vegas')"
+              aria-label="Search Grand Prix"
+            />
+            <button
+              id="clearBtn"
+              class="clear-btn"
+              title="Clear search"
+              aria-label="Clear search"
+            >
+              <i
+                class="fa fa-times"
+                aria-hidden="true"
+                style="color: var(--muted)"
+              ></i>
+            </button>
+
+            <!-- suggestions -->
+            <div
+              id="suggestions"
+              class="suggestions"
+              role="listbox"
+              aria-label="Matching Grand Prix"
+            ></div>
+          </div>
+        </div>
+
+        <div class="search-actions">
+          <button
+            id="clearSelectBtn"
+            class="btn"
+            title="Reset selection"
+            aria-label="Reset selection"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <center>
+        <h4>Select your preferred GP Highlight 👇</h4>
+      </center>
+
+      <div class="playlist-container" aria-hidden="false">
+        <div class="dropdown-wrapper">
+          <select
+            id="gpSelection"
+            onchange="updateSessionOptions()"
+            aria-label="Select Grand Prix"
+          >
+            <option value="" disabled selected>Select a Grand Prix</option>
+            <option value="australian">Australian Grand Prix</option>
+            <option value="chinese">Chinese Grand Prix</option>
+            <option value="japanese">Japanese Grand Prix</option>
+            <option value="bahrain">Bahrain Grand Prix</option>
+            <option value="saudi">Saudi Arabian Grand Prix</option>
+            <option value="miami">Miami Grand Prix</option>
+            <option value="emiliaromagna">Emilia Romagna Grand Prix</option>
+            <option value="monaco">Monaco Grand Prix</option>
+            <option value="spanish">Spanish Grand Prix</option>
+            <option value="canadian">Canadian Grand Prix</option>
+            <option value="austrian">Austrian Grand Prix</option>
+            <option value="british">British Grand Prix</option>
+            <option value="belgian">Belgian Grand Prix</option>
+            <option value="hungarian">Hungarian Grand Prix</option>
+            <option value="dutch">Dutch Grand Prix</option>
+            <option value="italian">Italian Grand Prix</option>
+            <option value="azerbaijan">Azerbaijan Grand Prix</option>
+            <option value="singapore">Singapore Grand Prix</option>
+            <option value="us">United States Grand Prix</option>
+            <option value="mexico">Mexico City Grand Prix</option>
+            <option value="brazilian">São Paulo Grand Prix</option>
+            <option value="lasvegas">Las Vegas Grand Prix</option>
+            <option value="qatar">Qatar Grand Prix</option>
+            <option value="abudhabi">Abu Dhabi Grand Prix</option>
+          </select>
+        </div>
+
+        <select
+          id="sessionSelection"
+          onchange="playVideo(this.value)"
+          disabled
+          aria-label="Select session"
+        >
+          <option value="" disabled selected>Select Session</option>
+        </select>
+      </div>
+
+      <div id="player-container" aria-live="polite"></div>
+
+      <center>
+        <div id="containerr3">
+          <h4 id="season-label">Formula 1 Highlights 2025 — By: Fancode</h4>
+        </div>
+      </center>
+
+      <!-- your external dataset/logic file if present -->
+      <script src="f1link.js"></script>
+
+      <footer>
+        <div class="watermark">
+          Created by UltraWebs(HM) © <span id="year"></span>
+        </div>
+        <div style="margin-top: 8px">
+          Formula 1 © <span id="year-footer"></span> | Designed by UW
+        </div>
+      </footer>
+    </div>
+
+    <!-- Popup (dark) -->
+    <div class="popup-overlay" id="coffeePopup" style="display: none">
+      <div
+        class="popup-box"
+        style="
+          background: #030304;
+          color: #ddeff6;
+          padding: 20px;
+          border-radius: 10px;
+          max-width: 500px;
+          margin: 0 auto;
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85);
+        "
+      >
+        <h2 style="margin: 0 0 8px; color: #e6f3fa">☕ Buy Me a Coffee?</h2>
+        <p
+          class="popup-message"
+          id="popupMessage"
+          style="color: var(--muted); line-height: 1.5; font-size: 14px"
+        >
+          Hey there! If you enjoy my work, show your support by buying me a
+          coffee! Every cup fuels my creativity and keeps me going.
+          <br />
+          <center>
+            <b style="color: var(--accent)">Click OK to show your support!</b>
+          </center>
+        </p>
+        <div
+          class="popup-buttons"
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 14px;
+          "
+        >
+          <button
+            class="ok-btn"
+            onclick="redirectToCoffee()"
+            style="
+              background: var(--accent);
+              color: #001018;
+              border: none;
+              padding: 10px 16px;
+              border-radius: 8px;
+              font-weight: 700;
+              cursor: pointer;
+            "
+          >
+            OK
+          </button>
+          <button
+            class="cancel-btn"
+            onclick="closePopup()"
+            style="
+              background: transparent;
+              border: 1px solid rgba(255, 255, 255, 0.04);
+              color: var(--muted);
+              padding: 10px 16px;
+              border-radius: 8px;
+              cursor: pointer;
+            "
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simplified search script (GP list functionality preserved) -->
+    <script>
+      (function () {
+        const gpSearch = document.getElementById("gpSearch");
+        const suggestionsEl = document.getElementById("suggestions");
+        const gpSelect = document.getElementById("gpSelection");
+        const clearBtn = document.getElementById("clearBtn");
+        const clearSelectBtn = document.getElementById("clearSelectBtn");
+        const yearToggle = document.getElementById("yearToggle");
+        const seasonLabel = document.getElementById("season-label");
+
+        function getGPList() {
+          const list = [];
+          for (let i = 0; i < gpSelect.options.length; i++) {
+            const opt = gpSelect.options[i];
+            if (!opt.value) continue;
+            list.push({ value: opt.value, label: opt.textContent.trim() });
+          }
+          return list;
+        }
+        const gpList = getGPList();
+
+        function escapeRegExp(s) {
+          return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        }
+
+        function makeSuggestion(item, matchQuery) {
+          const el = document.createElement("div");
+          el.className = "suggestion-item";
+          el.setAttribute("role", "option");
+          el.dataset.value = item.value;
+
+          const name = document.createElement("div");
+          name.className = "name";
+          if (!matchQuery) name.textContent = item.label;
+          else {
+            const re = new RegExp("(" + escapeRegExp(matchQuery) + ")", "i");
+            name.innerHTML = item.label.replace(
+              re,
+              '<strong style="color:var(--accent-primary)">$1</strong>'
+            );
+          }
+
+          const meta = document.createElement("div");
+          meta.className = "meta";
+          meta.textContent = item.value.replace(/-/g, " ");
+
+          el.appendChild(name);
+          el.appendChild(meta);
+          return el;
+        }
+
+        function renderSuggestions(filtered, query) {
+          suggestionsEl.innerHTML = "";
+          if (!filtered.length || !query) {
+            suggestionsEl.classList.remove("visible");
+            return;
+          }
+          filtered.forEach((item) => {
+            const node = makeSuggestion(item, query);
+            suggestionsEl.appendChild(node);
+          });
+          suggestionsEl.classList.add("visible");
+        }
+
+        function filterList(q) {
+          q = q.trim().toLowerCase();
+          if (!q) return [];
+          const starts = gpList.filter((x) =>
+            x.label.toLowerCase().startsWith(q)
+          );
+          const contains = gpList.filter(
+            (x) =>
+              !x.label.toLowerCase().startsWith(q) &&
+              x.label.toLowerCase().includes(q)
+          );
+          return starts.concat(contains);
+        }
+
+        gpSearch.addEventListener("input", (e) => {
+          const q = e.target.value;
+          if (!q) {
+            suggestionsEl.classList.remove("visible");
+            return;
+          }
+          const results = filterList(q);
+          renderSuggestions(results, q);
+          setActiveSuggestion(0);
+        });
+
+        clearBtn.addEventListener("click", () => {
+          gpSearch.value = "";
+          suggestionsEl.classList.remove("visible");
+          gpSearch.focus();
+        });
+
+        clearSelectBtn.addEventListener("click", () => {
+          gpSelect.selectedIndex = 0;
+          gpSearch.value = "";
+          suggestionsEl.classList.remove("visible");
+          triggerGPChange();
+        });
+
+        suggestionsEl.addEventListener("click", (e) => {
+          const item = e.target.closest(".suggestion-item");
+          if (!item) return;
+          selectGP(item.dataset.value);
+        });
+
+        let activeIndex = -1;
+        function setActiveSuggestion(index) {
+          const items = Array.from(
+            suggestionsEl.querySelectorAll(".suggestion-item")
+          );
+          if (!items.length) return;
+          if (index < 0) index = 0;
+          if (index >= items.length) index = items.length - 1;
+          items.forEach((it) => it.classList.remove("active"));
+          items[index].classList.add("active");
+          items[index].scrollIntoView({ block: "nearest" });
+          activeIndex = index;
+        }
+
+        gpSearch.addEventListener("keydown", (e) => {
+          const items = Array.from(
+            suggestionsEl.querySelectorAll(".suggestion-item")
+          );
+          if (!items.length) return;
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            setActiveSuggestion(activeIndex === -1 ? 0 : activeIndex + 1);
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            setActiveSuggestion(activeIndex - 1);
+          } else if (e.key === "Enter") {
+            e.preventDefault();
+            if (activeIndex >= 0 && items[activeIndex])
+              selectGP(items[activeIndex].dataset.value);
+            else if (items[0]) selectGP(items[0].dataset.value);
+          } else if (e.key === "Escape") {
+            suggestionsEl.classList.remove("visible");
+          }
+        });
+
+        function selectGP(value) {
+          gpSelect.value = value;
+          const label = gpList.find((x) => x.value === value)?.label || value;
+          gpSearch.value = label;
+          suggestionsEl.classList.remove("visible");
+          gpSelect.focus();
+          triggerGPChange();
+        }
+
+        function triggerGPChange() {
+          try {
+            if (typeof updateSessionOptions === "function")
+              updateSessionOptions();
+            else gpSelect.dispatchEvent(new Event("change", { bubbles: true }));
+          } catch (err) {
+            gpSelect.dispatchEvent(new Event("change", { bubbles: true }));
+            console.warn("triggerGPChange fallback", err);
+          }
+        }
+
+        document.addEventListener("click", (e) => {
+          if (
+            !e.target.closest(".search-input-wrap") &&
+            !e.target.closest(".suggestions")
+          )
+            suggestionsEl.classList.remove("visible");
+        });
+
+        yearToggle.addEventListener("change", () => {
+          const y = yearToggle.value;
+          seasonLabel.textContent = `Formula 1 Highlights ${y} — By: Fancode`;
+          try {
+            if (typeof onYearChange === "function") onYearChange();
+          } catch {}
+        });
+
+        (function init() {
+          // show popup after small delay
+          setTimeout(() => {
+            const p = document.getElementById("coffeePopup");
+            if (p) p.style.display = "block";
+          }, 600);
+        })();
+
+        window.__ultrawebs_search = { getList: () => gpList, selectGP };
+      })();
+    </script>
+
+    <!-- Small footer year script and popup actions -->
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("year-footer").textContent =
+        new Date().getFullYear();
+
+      function redirectToCoffee() {
+        window.open("https://buymeacoffee.com/haritmengar", "_blank");
+        closePopup();
+      }
+      function closePopup() {
+        const p = document.getElementById("coffeePopup");
+        if (p) p.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
