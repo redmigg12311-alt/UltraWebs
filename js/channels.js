@@ -134,6 +134,14 @@ const channels = [
       "https://d1m1xk35ma8qfl.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-v4tilgx2y7n7y/master.m3u8",
   },
   {
+    name: "F1 Fancode",
+    category: "Sports",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/960px-F1.svg.png",
+    stream:
+      "https://in-mc-flive.fancode.com/mumbai/139455_english_dash_7650_1drmta-di_h264/index.mpd",
+    drmKey: "684ddaa83d8a41b9839ecd4d9c7e1b1a:83d08bdd4f9d6a4e3de79ce5d3cb4d29",
+  },
+  {
     name: "SSC Extra",
     category: "Sports",
     image: "https://ultrawebs.github.io/-/webpa/sscex1.webp",
