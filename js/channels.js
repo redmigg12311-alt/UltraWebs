@@ -139,7 +139,7 @@ const channels = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/960px-F1.svg.png",
     stream:
       "https://in-mc-flive.fancode.com/mumbai/139455_english_dash_7650_1drmta-di_h264/index.mpd",
-    drmKey: "684ddaa83d8a41b9839ecd4d9c7e1b1a:83d08bdd4f9d6a4e3de79ce5d3cb4d29",
+    drmKey: "83d08bdd4f9d6a4e3de79ce5d3cb4d29:684ddaa83d8a41b9839ecd4d9c7e1b1a",
   },
   {
     name: "SSC Extra",
